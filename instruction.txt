@@ -1,0 +1,25 @@
+https://academicpages.github.io/ 
+https://www.youtube.com/watch?v=jplSmg2Z-Tw (Tutorial)
+
+
+Change GitHub PAT via terminal
+https://USERNAME:YOUR_PAT_TOKEN@github.com/YOUR_USERNAME/YOUR_REPO.git
+Replace the following placeholders with your information:
+USERNAME: Your GitHub username.
+YOUR_PAT_TOKEN: The Personal Access Token you generated.
+YOUR_USERNAME: Your GitHub username again.
+YOUR_REPO: The name of your repository.
+
+
+git status
+
+
+Add changes, commit, and push: 
+  1. git add .
+  2. git commit -m "Your commit message here"
+  3. git branch
+  4. git push origin "Name of branch"
+
+
+
+
