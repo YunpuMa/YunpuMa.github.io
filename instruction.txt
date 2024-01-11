@@ -1,5 +1,6 @@
 https://academicpages.github.io/ 
 https://www.youtube.com/watch?v=jplSmg2Z-Tw (Tutorial)
+https://www.youtube.com/watch?v=g6AJ9qPPoyc&t=489s
 
 
 Change GitHub PAT via terminal
