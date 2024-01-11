@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Yunpu Ma"
-  avatar           : "yunpu.png"
+  avatar           : "profile.png"
   bio              : "AI researcher exploring the world"
   location         : "Munich"
   # employer         :
@@ -100,7 +100,7 @@ author:
   google_plus      :
   keybase          :
   instagram        :
-  linkedin         : "https://www.linkedin.com/in/yunpu-ma-05a9b41b0"
+  linkedin         : "yunpu-ma-05a9b41b0"
   # orcid            : "http://orcid.org/yourorcidurl"
   steam            :
   tumblr           :
