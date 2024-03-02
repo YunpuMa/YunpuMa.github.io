@@ -16,10 +16,11 @@ git status
 
 
 Add changes, commit, and push: 
-  1. git add .
-  2. git commit -m "Your commit message here"
-  3. git branch
-  4. git push origin "Name of branch"
+  1. cd YunpuMa.github.io
+  2. git add .
+  3. git commit -m "Your commit message here"
+  4. git branch
+  5. git push origin "Name of branch"
 
 
 
