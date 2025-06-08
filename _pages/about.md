@@ -2,7 +2,10 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+# subtitle: “If you feel you are in a black hole, don’t give up. There’s a way out.” — Stephen Hawking
+subtitle: >
+  <em>“If you feel you are in a black hole, don’t give up. There’s a way out.”</em><br>
+  <small>— Stephen Hawking</small>
 
 profile:
   align: left
@@ -10,7 +13,8 @@ profile:
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>
-      Lecturer at CIS LMU
+      Lecturer at 
+      <a href="https://www.cis.uni-muenchen.de/" target="_blank" rel="noopener">CIS LMU</a>
     </p>
     <p>
       Group Leader of 
@@ -21,11 +25,14 @@ profile:
       <a href="https://mcml.ai/" target="_blank" rel="noopener">MCML</a>
     </p>
     <p>
-      Industry PhD Advisor (Siemens, Huawei, Bosch, etc)
+      Industry PhDs Advisor (Siemens, Huawei, Bosch, etc)
+    </p>
+    <p>
+      cognitive.yunpu[at]gmail.com
     </p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false # includes social icons at the bottom of the page
 
 announcements:
   enabled: true # includes a list of news items
