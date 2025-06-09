@@ -1,3 +1,5 @@
 https://medium.com/@carlbettosi/create-a-personal-academic-website-easily-with-github-pages-and-jekyll-minimal-coding-f1115eeb5ab7
 
-Remove assets/jupyter folder to show locally via "bundle exec jekyll serve" and recover before committing. 
+Show locally via: 
+	- cd YunpuMa.github.io
+	- bundle exec jekyll serve

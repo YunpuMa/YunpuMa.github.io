@@ -9,12 +9,26 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-publications",
+  },{id: "nav-news",
+          title: "news",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/news/";
+          },
+        },{id: "nav-publications",
           title: "publications",
           description: "Selected publications &amp; preprints* (co)-first author, † (co)-corresponding author",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
+          },
+        },{id: "nav-talks",
+          title: "talks",
+          description: "Talks",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/talks/";
           },
         },{id: "nav-teaching",
           title: "teaching",
@@ -35,16 +49,19 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
-          description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
+            },},{id: "news-a-long-announcement-with-details",
           title: 'A long announcement with details',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+            },},{id: "news-i-am-honored-to-serve-as-guest-editor-for-the-upcoming-special-issue-on-multi-modal-ai-systems-and-multi-agent-systems-in-the-journal-electronics-impact-factor-2-6",
+          title: 'I am honored to serve as Guest Editor for the upcoming Special Issue...',
+          description: "",
+          section: "News",},{id: "news-i-start-teaching-the-course-from-large-language-models-to-ai-agents-at-cis-lmu-munich-in-the-summer-semester-2025",
+          title: 'I start teaching the course From Large Language Models to AI Agents at...',
+          description: "",
+          section: "News",},{id: "news-invited-talk-of-multiagentic-system-that-memorizes-communicates-and-acts-at-huawei-munich-wireless-summit-2025",
+          title: 'Invited talk of Multiagentic System that Memorizes, Communicates, and Acts at Huawei Munich...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
