@@ -37,7 +37,7 @@ social: false # includes social icons at the bottom of the page
 announcements:
   enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  limit: 3 # leave blank to include all the news in the `_news` folder
 
 # latest_posts:
 #   enabled: true
@@ -45,8 +45,23 @@ announcements:
 #   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+### About Me
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I develop intelligent systems that integrate memory, reasoning, and multimodal understanding to act autonomously in open-ended environments. My goal is to develop foundation models and agentic systems that continually learn, collaborate, and adapt to complex, real-world tasks.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them. 
+I am currently a lecturer at [CIS LMU Munich](https://www.cis.uni-muenchen.de/), where I teach the course *From Large Language Models to AI Agents*. I am also affiliated with the [Munich Center for Machine Learning](https://mcml.ai/) and serve as a group leader at the [TRESP Lab](https://tresp-lab.github.io/), supervising PhD students and leading research on LLMs, multimodal models, and agentic AI. I earned my Ph.D. in Computer Science from LMU under the supervision of Prof. Volker Tresp, with a focus on relational learning, cognitive modeling, and quantum AI. Prior to that, I studied theoretical physics, conducting research at the Max Planck Institute for Physics. I also collaborate closely with academic and industrial partners, including [Prof. Hinrich Schütze](https://scholar.google.com/citations?user=qIL9dWUAAAAJ&hl=en), [Prof. Volker Tresp](https://tresp-lab.github.io/), [Prof. Sören Pirk](https://www.vcai-lab.org/), [Prof. Evgeny Kharlamov](https://scholar.google.de/citations?user=-slpMF8AAAAJ&hl=en), [Prof. Kristian Kersting](https://ml-research.github.io/people/kkersting/), and others. I also supervise several industry-funded PhD students from Siemens, Huawei, and Bosch, etc.
+
+My current research explores the design of AI agents equipped with persistent memory, advanced reasoning capabilities, and the ability to operate autonomously in open-ended settings. A central focus is on developing LLM-based (multi)agentic systems that perceive and process multimodal inputs—such as language, vision, and structured data—while continuously adapting through reflection and self-improvement. These agents aim to support robust planning, problem-solving, and decision-making across both scientific and industrial domains.
+
+### Research Interests
+
+- Memory-augmented agents for long-term adaptation  
+- Multi-agent systems with communication and coordination  
+- Self-improving agents in open-ended environments  
+- Scalable large reasoning models 
+
+### Contact
+
+If you're interested in research collaboration, thesis supervision, or exploring shared interests in intelligent agents and foundation models, feel free to get in touch via the contact details provided on this page.
+
+

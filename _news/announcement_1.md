@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2025-04-23 
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement.
+I start teaching the course *From Large Language Models to AI Agents* at CIS LMU Munich in the Summer Semester 2025.
