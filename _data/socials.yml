@@ -45,7 +45,7 @@ wechat_qr: wechat_qr.jpg # filename of your wechat qr-code saved as an image (e.
 # x_username: # your X handle
 # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
-custom_social: # can be any name here other than the ones already defined above
-  logo: assets/img/agi_colab.jpg # can be png, svg, jpg
-  title: Xiaohongshu
-  url: https://www.xiaohongshu.com/user/profile/67c90625000000000e02c3f1
+# custom_social: # can be any name here other than the ones already defined above
+#   logo: assets/img/agi_colab.jpg # can be png, svg, jpg
+#   title: Xiaohongshu
+#   url: https://www.xiaohongshu.com/user/profile/67c90625000000000e02c3f1
