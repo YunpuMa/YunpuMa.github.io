@@ -1,0 +1,28 @@
+# Keep section names aligned with the headings in _pages/profiles.md.
+- name: Alex Morgan
+  role: PhD Student
+  section: PhD Students
+  photo: /assets/img/member-placeholder.svg
+  link: "#"
+  research_area: Reliable machine learning
+
+- name: Sam Rivera
+  role: PhD Student
+  section: PhD Students
+  photo: /assets/img/member-placeholder.svg
+  link: "#"
+  research_area: Computational modeling
+
+- name: Taylor Chen
+  role: Master Student
+  section: Master Students
+  photo: /assets/img/member-placeholder.svg
+  link: "#"
+  research_area: Data-centric methods
+
+- name: Jordan Lee
+  role: Alumnus
+  section: Alumni
+  photo: /assets/img/member-placeholder.svg
+  link: "#"
+  research_area: Scientific computing

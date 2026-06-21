@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-labelledby="title description">
+  <title id="title">Publication thumbnail placeholder</title>
+  <desc id="description">Neutral document illustration used until a publication thumbnail is added.</desc>
+  <rect width="320" height="200" fill="#e9ecef"/>
+  <rect x="94" y="24" width="132" height="152" rx="5" fill="#f8f9fa" stroke="#adb5bd" stroke-width="5"/>
+  <path d="M119 68h82M119 91h82M119 114h62M119 137h72" stroke="#adb5bd" stroke-width="8" stroke-linecap="round"/>
+</svg>
