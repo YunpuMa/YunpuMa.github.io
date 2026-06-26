@@ -546,7 +546,11 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
       document.documentElement.classList.remove("bibsearch-pending");
     };
     const scheduleFinishedBibSearch = () => setTimeout(finishBibSearch, 0);
-    document.getElementById("bibsearch")?.addEventListener("input", scheduleFinishedBibSearch);
+    document.getElementById("bibsearch")?.addEventListener("input", () => {
+      const hash = window.location.hash ? decodeURIComponent(window.location.hash.substring(1)) : "";
+      if (hash.startsWith("topic:")) history.replaceState(null, "", window.location.pathname + window.location.search);
+      scheduleFinishedBibSearch();
+    });
     window.addEventListener("hashchange", () => {
       shouldSyncBibSearchFromHash = true;
       document.documentElement.classList.add("bibsearch-pending");
