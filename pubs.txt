@@ -1,0 +1,235 @@
+@inproceedings{giovagnoli2023qneat,
+  title={Qneat: Natural evolution of variational quantum circuit architecture},
+  author={Giovagnoli, Alessandro and Tresp, Volker and Ma, Yunpu and Schubert, Matthias},
+  booktitle={Proceedings of the Companion Conference on Genetic and Evolutionary Computation},
+  pages={647--650},
+  year={2023}
+}
+
+@inproceedings{liao2024gentkg,
+  title={Gentkg: Generative forecasting on temporal knowledge graph with large language models},
+  author={Liao, Ruotong and Jia, Xu and Li, Yangzhe and Ma, Yunpu and Tresp, Volker},
+  booktitle={Findings of the association for computational linguistics: NAACL 2024},
+  pages={4303--4317},
+  year={2024}
+}
+
+@article{Sun2026quantumarchitecture,
+  doi = {10.22331/q-2026-02-03-1994},
+  url = {https://doi.org/10.22331/q-2026-02-03-1994},
+  title = {Quantum {A}rchitecture {S}earch with {U}nsupervised {R}epresentation {L}earning},
+  author = {Sun, Yize and Wu, Zixin and Tresp, Volker and Ma, Yunpu},
+  journal = {{Quantum}},
+  issn = {2521-327X},
+  publisher = {{Verein zur F{\"{o}}rderung des Open Access Publizierens in den Quantenwissenschaften}},
+  volume = {10},
+  pages = {1994},
+  month = feb,
+  year = {2026}
+}
+
+@inproceedings{z.2025,
+  title = {DyGMamba: Efficiently Modeling Long-Term Temporal Dependency on Continuous-Time Dynamic Graphs with State Space Models},
+  author = {Ding, Z. and Li, Y. and He, Y. and Norelli, A. and Wu, J. and Tresp, V. and Ma, Y. and Bronstein, M.},
+  year = {2025},
+  booktitle = {Temporal Graph Learning Workshop at the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+}
+
+@inproceedings{liao2024videoinsta,
+  title={Videoinsta: Zero-shot long video understanding via informative spatial-temporal reasoning with llms},
+  author={Liao, Ruotong and Erler, Max and Wang, Huiyu and Zhai, Guangyao and Zhang, Gengyuan and Ma, Yunpu and Tresp, Volker},
+  booktitle={Findings of the Association for Computational Linguistics: EMNLP 2024},
+  pages={6577--6602},
+  year={2024}
+}
+
+@inproceedings{bi2025llava,
+  title={LLaVA steering: Visual instruction tuning with 500x fewer parameters through modality linear representation-steering},
+  author={Bi, Jinhe and Wang, Yujun and Chen, Haokun and Xiao, Xun and Hecker, Artur and Tresp, Volker and Ma, Yunpu},
+  booktitle={Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  pages={15230--15250},
+  year={2025}
+}
+
+@misc{j.2025,
+  title = {PRISM: Self-Pruning Intrinsic Selection Method for Training-Free Multimodal Data Selection},
+  author = {Bi, J. and Wang, Y. and Yan, D. and Aniri and Huang, W. and Jin, Z. and Ma, X. and Hecker, A. and Ye, M. and Xiao, X. and Schütze, H. and Tresp, V. and Ma, Y.},
+  year = {2025},
+}
+
+"""
+Zhou, X., Han, X., Yang, F., Ma, Y., Tresp, V., & Knoll, A. (2026). OpenDriveVLA: Towards End-to-end Autonomous Driving with Large Vision Language Action Model. Proceedings of the AAAI Conference on Artificial Intelligence, 40(16), 13782–13790. https://doi.org/10.1609/aaai.v40i16.38386
+"""
+
+@inproceedings{y.2025,
+  title = {WebPilot: A Versatile and Autonomous Multi-Agent System for Web Task Execution with Strategic Exploration},
+  author = {Zhang, Y. and Ma, Z. and Ma, Y. and Han, Z. and Wu, Y. and Tresp, V.},
+  year = {2025},
+  booktitle = {AAAI Conference on Artificial Intelligence},
+}
+
+@inproceedings{wang-etal-2025-metok,
+    title = "{MET}ok: Multi-Stage Event-based Token Compression for Efficient Long Video Understanding",
+    author = "Wang, Mengyue  and
+      Chen, Shuo  and
+      Kersting, Kristian  and
+      Tresp, Volker  and
+      Ma, Yunpu",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.emnlp-main.954/",
+    doi = "10.18653/v1/2025.emnlp-main.954",
+    pages = "18870--18884",
+    ISBN = "979-8-89176-332-6",
+    abstract = "Recent advances in Video Large Language Models (VLLMs) have significantly enhanced their ability to understand video content. Nonetheless, processing long videos remains challenging due to high computational demands and the redundancy present in the visual data. In this work, we propose $\textbf{METok}$, a training-free, $\textbf{M}$ulti-stage $\textbf{E}$vent-based $\textbf{Tok}$en compression framework designed to accelerate VLLMs' inference while preserving accuracy. METok progressively eliminates redundant visual tokens across three critical stages: (1) event-aware compression during vision encoding, (2) hierarchical token pruning in the prefilling stage based on semantic alignment and event importance, and (3) a decoding-stage KV Cache optimization that further reduces memory consumption. Our experiments on diverse video benchmarks demonstrate that METok achieves an optimal trade-off between efficiency and accuracy by dynamically selecting informative visual tokens. For instance, equipping LongVA-7B with METok realizes an 80.6{\%} FLOPs reduction and 93.5{\%} KV Cache memory savings, all while maintaining comparable or even superior accuracy."
+}
+
+@misc{ma2026selfevolvingmultiagentsystemstextual,
+      title={Self-Evolving Multi-Agent Systems via Textual Backpropagation}, 
+      author={Xiaowen Ma and Yunpu Ma and Chenyang Lin and Sikuan Yan and Jinhe Bi and Zixuan Cao and Yijun Tian and Volker Tresp and Hinrich Schuetze},
+      year={2026},
+      eprint={2506.09046},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2506.09046}, 
+}
+
+@misc{y.2025,
+  title = {ASCD: Attention-Steerable Contrastive Decoding for Reducing Hallucination in MLLM},
+  author = {Wang, Y. and Aniri and Bi, J. and Pirk, S. and Ma, Y.},
+  year = {2025},
+}
+
+@inproceedings{zhang-etal-2025-swarmagentic,
+    title = "{S}warm{A}gentic: Towards Fully Automated Agentic System Generation via Swarm Intelligence",
+    author = "Zhang, Yao  and
+      Lin, Chenyang  and
+      Tang, Shijie  and
+      Chen, Haokun  and
+      Zhou, Shijie  and
+      Ma, Yunpu  and
+      Tresp, Volker",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.emnlp-main.93/",
+    doi = "10.18653/v1/2025.emnlp-main.93",
+    pages = "1778--1818",
+    ISBN = "979-8-89176-332-6",
+    abstract = "The rapid progress of Large Language Models has advanced agentic systems in decision-making, coordination, and task execution. Yet, existing agentic system generation frameworks lack full autonomy, missing from-scratch agent generation, self-optimizing agent functionality, and collaboration, limiting adaptability and scalability. We propose **SwarmAgentic**, the *first framework that fully automates agentic system generation, optimization, and collaboration*, constructing agents from scratch and jointly refining functionality and coordination via language-driven exploration. To enable efficient search over system-level structures, SwarmAgentic maintains a population of candidate systems and evolves them via feedback-guided updates, drawing inspiration from Particle Swarm Optimization (PSO). We evaluate our method on six real-world, open-ended, and exploratory tasks involving high-level planning, system-level coordination, and creative reasoning. Given only a task description and an objective function, SwarmAgentic outperforms all baselines, achieving a **+261.8{\%} relative improvement** over ADAS on the TravelPlanner benchmark, highlighting the effectiveness of full automation in structurally unconstrained tasks. This framework marks a significant step toward scalable and autonomous agentic system design, bridging swarm intelligence with fully automated system multi-agent generation."
+}
+
+@misc{yan2026memoryr1enhancinglargelanguage,
+      title={Memory-R1: Enhancing Large Language Model Agents to Manage and Utilize Memories via Reinforcement Learning}, 
+      author={Sikuan Yan and Xiufeng Yang and Zuchao Huang and Ercong Nie and Zifeng Ding and Zonggen Li and Xiaowen Ma and Jinhe Bi and Kristian Kersting and Jeff Z. Pan and Hinrich Schütze and Volker Tresp and Yunpu Ma},
+      year={2026},
+      eprint={2508.19828},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2508.19828}, 
+}
+
+@misc{tong2026streamingthinkerlargelanguagemodels,
+      title={StreamingThinker: Large Language Models Can Think While Reading}, 
+      author={Junlong Tong and Yingqi Fan and Anhao Zhao and Yunpu Ma and Xiaoyu Shen},
+      year={2026},
+      eprint={2510.17238},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2510.17238}, 
+}
+
+@inproceedings{zhang2026think,
+  title={Think-as-you-see: Streaming chain-of-thought reasoning for large vision-language models},
+  author={Zhang, Jialiang and Tong, Junlong and Lin, Junyan and Wu, Hao and Sun, Yirong and Ma, Yunpu and Shen, Xiaoyu},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={11998--12008},
+  year={2026}
+}
+
+
+@inproceedings{bi2026geometry,
+  title={The Geometry of Reasoning: Self-Evaluation via Layerwise Trajectory Evolution},
+  author={Bi, Jinhe and Yan, Danqi and Wang, Yifan and Huang, Wenke and Chen, Haokun and Wan, Guancheng and Ye, Mang and Xiao, Xun and Schuetze, Hinrich and Tresp, Volker and others},
+  booktitle={ICML. https://openreview. net/forum},
+  year={2026}
+}
+
+@article{li2026graph,
+  title={Graph is a Substrate Across Data Modalities},
+  author={Li, Ziming and Wu, Xiaoming and Wang, Zehong and Li, Jiazheng and Tian, Yijun and Bi, Jinhe and Ma, Yunpu and Ye, Yanfang and Zhang, Chuxu},
+  journal={arXiv preprint arXiv:2601.22384},
+  year={2026}
+}
+
+@inproceedings{liu2026parameter,
+  title={Parameter-efficient routed fine-tuning: Mixture-of-experts demands mixture of adaptation modules},
+  author={Liu, Yilun and Ma, Yunpu and Lu, Yuetian and Chen, Shuo and Ding, Zifeng and Tresp, Volker},
+  booktitle={Findings of the Association for Computational Linguistics: EACL 2026},
+  pages={4439--4457},
+  year={2026}
+}
+
+@article{liu2026routing,
+  title={Routing-Free Mixture-of-Experts},
+  author={Liu, Yilun and Han, Jinru and Yan, Sikuan and Tresp, Volker and Ma, Yunpu},
+  journal={arXiv preprint arXiv:2604.00801},
+  year={2026}
+}
+
+@article{cheng2026mem,
+  title={Mem $\^{} 2$ Evolve: Towards Self-Evolving Agents via Co-Evolutionary Capability Expansion and Experience Distillation},
+  author={Cheng, Zihao and Liu, Zeming and Shan, Yingyu and Wang, Xinyi and Zhu, Xiangrong and Ma, Yunpu and Wang, Hongru and Guo, Yuhang and Lin, Wei and Wang, Yunhong},
+  journal={arXiv preprint arXiv:2604.10923},
+  year={2026}
+}
+
+@article{ye2026select,
+  title={Select to Think: Unlocking SLM Potential with Local Sufficiency},
+  author={Ye, Wenxuan and Zhang, Yangyang and An, Xueli and Carle, Georg and Ma, Yunpu},
+  journal={arXiv preprint arXiv:2604.26940},
+  year={2026}
+}
+
+@article{yan2026pyravid,
+  title={PyraVid: Hierarchical Multimodal Memory for Long-Horizon Video Reasoning},
+  author={Yan, Sikuan and Dong, Sicheng and Wang, Haotong and Nie, Ercong and Liu, Yilun and Bi, Jinhe and Xu, Yingjie and Schwarzmann, Susanna and Trivisonno, Riccardo and Tresp, Volker and others},
+  journal={arXiv preprint arXiv:2605.17065},
+  year={2026}
+}
+
+@article{yan2026memory,
+  title={Memory-R2: Fair Credit Assignment for Long-Horizon Memory-Augmented LLM Agents},
+  author={Yan, Sikuan and Bahloul, Ahmed and Nie, Ercong and Schwarzmann, Susanna and Trivisonno, Riccardo and Tresp, Volker and Ma, Yunpu},
+  journal={arXiv preprint arXiv:2605.21768},
+  year={2026}
+}
+
+@article{lu2026openclaw,
+  title={OpenClaw Research: A Systematic Survey of Large Language Model Agents in Open Deployment},
+  author={Lu, Shuo and Yu, Kecheng and Jiang, Siru and Xu, Yinuo and Zhan, Bing and Wang, Yanbo and Ke, Changxin and Xu, Yuan and Xiong, Xin and Zhou, Xinyun and others},
+  year={2026}
+}
+
+@article{bi2026echorl,
+  title={EchoRL: Reinforcement Learning via Rollout Echoing},
+  author={Bi, Jinhe and Yang, Minglai and Zhou, Xingcheng and Huang, Wenke and Yan, Sikuan and Wang, Yujun and Cao, Zixuan and F{\"a}rber, Michael and Xiao, Xun and Tresp, Volker and others},
+  journal={arXiv preprint arXiv:2605.31228},
+  year={2026}
+}
+
+
+

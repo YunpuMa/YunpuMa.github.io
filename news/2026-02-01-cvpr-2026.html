@@ -1,0 +1,215 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Cvpr 2026 | Dr. Yunpu Ma </title> <meta name="author" content="Yunpu Ma"> <meta name="description" content="Personal academic website of Dr. Yunpu Ma. "> <meta name="keywords" content="Yunpu Ma, artificial intelligence, agentic AI, machine learning, publications"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://yunpuma.github.io/news/2026-02-01-cvpr-2026.html"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&amp;display=optional"> <style>
+  :root {
+    --global-theme-color: #4e6fa3;
+    --global-hover-color: #3d5a87;
+    --global-code-bg-color: rgba(78, 111, 163, 0.07);
+    --global-bg-color: #f5f7fa;
+    --global-heading-color: #2d3748;
+  }
+  html[data-theme=dark] {
+    --global-theme-color: #7a9fc4;
+    --global-hover-color: #6a8fb5;
+    --global-heading-color: var(--global-text-color);
+  }
+  html[data-theme=dark] a.navbar-brand.title::before {
+    color: #cbd5e1;
+  }
+  html[data-theme=dark] body {
+    background-image:
+      radial-gradient(ellipse 65% 55% at 12% 18%, rgba(122, 159, 196, 0.09) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 65% at 88% 82%, rgba(122, 159, 196, 0.06) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 58% 38%, rgba(90, 130, 180, 0.04) 0%, transparent 60%);
+  }
+  html[data-theme=dark] .navbar {
+    background-color: rgba(28, 28, 29, 0.72) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(255, 255, 255, 0.04) !important;
+  }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-image:
+      radial-gradient(ellipse 65% 55% at 12% 18%, rgba(78, 111, 163, 0.13) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 65% at 88% 82%, rgba(78, 111, 163, 0.09) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 58% 38%, rgba(100, 140, 200, 0.06) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3 { font-family: 'Libre Baskerville', serif; font-weight: 700; color: var(--global-heading-color); }
+  .post-title { letter-spacing: 0.01em; }
+  #about-name-prefix { font-size: 0.55em; font-weight: 400; }
+  #about-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35em; font-weight: 400; font-style: italic; color: var(--global-theme-color); }
+  .navbar-brand { font-family: 'Libre Baskerville', serif; font-weight: 400; }
+  a.navbar-brand.title {
+    color: var(--global-theme-color) !important;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.18rem;
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-size: 0;
+    font-style: normal;
+    font-weight: 400 !important;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  a.navbar-brand.title::before {
+    content: "Dr.";
+    color: #000;
+    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+    font-size: 0.78rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  a.navbar-brand.title::after {
+    content: "Yunpu Ma";
+    color: var(--global-theme-color);
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-size: 1.42rem;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  a.navbar-brand.title:hover,
+  a.navbar-brand.title:focus-visible {
+    text-decoration: none;
+  }
+  a.navbar-brand.title:hover::after,
+  a.navbar-brand.title:focus-visible::after {
+    color: var(--global-hover-color);
+  }
+  .navbar {
+    background-color: rgba(245, 247, 250, 0.72) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    opacity: 1 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55) !important;
+    box-shadow: 0 2px 24px rgba(78, 111, 163, 0.08), inset 0 -1px 0 rgba(255, 255, 255, 0.4) !important;
+  }
+  /* Publications: glass card lift + dim siblings on hover */
+  .bibliography li {
+    position: relative;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.6rem;
+    transition: box-shadow 0.22s ease, background 0.22s ease;
+  }
+  .bibliography li:hover {
+    background: linear-gradient(
+      120deg,
+      rgba(78, 111, 163, 0.10) 0%,
+      rgba(78, 111, 163, 0.03) 50%,
+      rgba(78, 111, 163, 0.08) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.25),
+      0 4px 20px rgba(78, 111, 163, 0.1);
+  }
+  html[data-theme=dark] .bibliography li:hover {
+    background: linear-gradient(
+      120deg,
+      rgba(122, 159, 196, 0.12) 0%,
+      rgba(122, 159, 196, 0.04) 50%,
+      rgba(122, 159, 196, 0.10) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+      0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bibliography li { transition: none; }
+  }
+  /* Navbar: zoom on hover */
+  .navbar.navbar-light .navbar-brand.social a {
+    display: inline-block;
+    transform: translateZ(0) scale(1);
+    transition: transform 0.18s ease;
+  }
+  .navbar.navbar-light .navbar-brand.social a:hover {
+    transform: translateZ(0) scale(1.22);
+  }
+  .navbar.navbar-light .navbar-nav .nav-item .nav-link {
+    transform: translateZ(0) scale(1);
+    transition: transform 0.18s ease, color 0.18s ease;
+  }
+  .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+    transform: translateZ(0) scale(1.08);
+  }
+  #light-toggle {
+    transform: translateY(4px) translateZ(0) scale(1);
+    transition: transform 0.18s ease;
+  }
+  #light-toggle:hover {
+    transform: translateY(4px) translateZ(0) scale(1.18);
+  }
+  /* Publication buttons: muted theme */
+  .bibliography li .links a.btn {
+    color: color-mix(in srgb, var(--global-theme-color) 65%, var(--global-text-color-light)) !important;
+    border: 1px solid rgba(0, 0, 0, 0.13) !important;
+    background: rgba(78, 111, 163, 0.03) !important;
+    transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  }
+  html[data-theme=dark] .bibliography li .links a.btn {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    background: rgba(122, 159, 196, 0.05) !important;
+  }
+  .bibliography li .links a.btn:hover {
+    color: var(--global-theme-color) !important;
+    border-color: rgba(78, 111, 163, 0.4) !important;
+    background: rgba(78, 111, 163, 0.08) !important;
+  }
+  /* About page: reserve profile image space before image loads */
+  .profile picture { display: block; aspect-ratio: 360 / 480; }
+  .profile img { width: 100%; height: auto; }
+  /* Page transition: veil overlay fades out so page content opacity stays at 1 (avoids anti-aliasing flicker on text) */
+  #page-veil {
+    position: fixed;
+    inset: 0;
+    background: var(--global-bg-color);
+    z-index: 9998;
+    pointer-events: none;
+    animation: veil-out 0.28s ease forwards;
+  }
+  @keyframes veil-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #page-veil { animation: none; opacity: 0; }
+  }
+</style> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Dr. Yunpu Ma </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/news/">News <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/grants/">Grants </a> </li> <li class="nav-item "> <a class="nav-link" href="/people/">People </a> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Cvpr 2026</h1> <p class="post-meta"> Created on February 01, 2026 </p> <p class="post-tags"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </p> </header> <article class="post-content"> <div id="markdown-content"> <p>One paper has been accepted to CVPR 2026.</p> </div> </article> </div> </div> <div id="page-veil" aria-hidden="true"></div> <script>
+  document.addEventListener('click', function(e) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var a = e.target.closest('a[href]');
+    if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
+    try {
+      var url = new URL(a.href, location.href);
+      if (url.origin !== location.origin) return;
+      if (url.pathname + url.search === location.pathname + location.search) return;
+    } catch(err) { return; }
+    e.preventDefault();
+    var href = a.href;
+    var veil = document.createElement('div');
+    veil.style.cssText = 'position:fixed;inset:0;background:var(--global-bg-color);z-index:9999;pointer-events:all;opacity:0;transition:opacity 0.15s ease';
+    document.body.appendChild(veil);
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        veil.style.opacity = '1';
+        setTimeout(function() { window.location.href = href; }, 160);
+      });
+    });
+  }, true);
+</script> <footer role="contentinfo" style="position: fixed; bottom: 0; left: 0; background: transparent; font-size: .75rem; z-index: 1030;"> <div class="container mt-0" style="padding: 9px 16px 8px; text-align: left; color: var(--global-text-color-light); text-shadow: 0 0 8px var(--global-bg-color), 0 0 14px var(--global-bg-color);"> © Copyright 2026 Yunpu Ma. LMU Munich </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> </body> </html>

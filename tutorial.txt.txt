@@ -1,5 +1,0 @@
-https://medium.com/@carlbettosi/create-a-personal-academic-website-easily-with-github-pages-and-jekyll-minimal-coding-f1115eeb5ab7
-
-Show locally via: 
-	- cd YunpuMa.github.io
-	- bundle exec jekyll serve
