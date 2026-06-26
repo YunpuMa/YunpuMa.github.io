@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://127.0.0.1:8080/publications/)",
+      "Bash(docker compose *)",
+      "Bash(curl -fsS http://127.0.0.1:8080/al-folio/publications/)",
+      "Bash(curl -fsS http://127.0.0.1:8080/al-folio/)",
+      "Bash(curl -sI http://127.0.0.1:8080/)",
+      "Bash(curl -s http://127.0.0.1:8080/)",
+      "Bash(npx playwright *)",
+      "Bash(curl -s http://127.0.0.1:8080/assets/css/main.css)"
+    ]
+  }
+}

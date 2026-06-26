@@ -34,6 +34,47 @@ nav_order: 2
   html[data-theme=dark] .news table th {
     color: rgba(124, 160, 197, 0.78);
   }
+  .news-info {
+    display: inline;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+    cursor: help;
+    position: relative;
+  }
+  .news-info:focus-visible {
+    outline: none;
+  }
+  .news-info::after {
+    content: attr(data-tooltip);
+    display: block;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px;
+    padding: 6px 10px;
+    background: rgba(30, 30, 30, 0.88);
+    color: #f0f0f0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1.45;
+    border-radius: 5px;
+    pointer-events: none;
+    white-space: normal;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.15s ease 0s;
+    z-index: 100;
+  }
+  .news-info:hover::after,
+  .news-info:focus-visible::after {
+    opacity: 1;
+    transition-delay: 0.1s;
+  }
+  html[data-theme=dark] .news-info::after {
+    background: rgba(220, 220, 220, 0.92);
+    color: #1a1a1a;
+  }
 </style>
 
 <div class="news">
