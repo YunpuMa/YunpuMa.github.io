@@ -8,7 +8,7 @@ profile:
   image: portrait/prof_pic-800.webp
   image_circular: false
   chips:
-    - label: Assistant Professor
+    - label: Lecturer
       sublabel: LMU Munich
       url: https://www.lmu.de/
     - label: Research Scientist
@@ -195,9 +195,9 @@ latest_posts:
 <p class="lead-para">I develop intelligent systems that integrate memory, reasoning, and multimodal understanding to act autonomously in open-ended environments. My goal is to build foundation models and agentic systems that continually learn, collaborate, and adapt to complex real-world tasks.</p>
 
 
-I am currently an **Assistant Professor** at [LMU Munich](https://www.lmu.de/), working with [Prof. Hinrich Schütze](https://www.cis.lmu.de/~hs/). In parallel, I am an **external research scientist** at the Huawei Research Center, where I supervise PhD students on agentic AI.
+I am currently a **Lecturer** at [LMU Munich](https://www.lmu.de/), where I work with [Prof. Hinrich Schütze](https://www.cis.lmu.de/~hs/) on agentic AI and foundation models. In parallel, I am an **external research scientist** at the Huawei Research Center, where I supervise PhD students on agentic AI.
 
-I am also a **group leader** at the [TRESP Lab](https://tresp-lab.github.io/) and am affiliated with the [Munich Center for Machine Learning (MCML)](https://mcml.ai/). At TRESP Lab, I co-supervise PhD students with [Prof. Volker Tresp](https://tresp-lab.github.io/) and Prof. Thomas Seidl. Before joining LMU in my current role, I was a research scientist at Siemens, working on quantum machine learning for industrial applications.
+I am also a **group leader** at the [TRESP Lab](https://tresp-lab.github.io/) and am affiliated with the [Munich Center for Machine Learning (MCML)](https://mcml.ai/). At TRESP Lab, I co-supervise PhD students with [Prof. Volker Tresp](https://tresp-lab.github.io/) and Prof. Thomas Seidl. Before joining LMU, I was a research scientist at Siemens, working on quantum machine learning for industrial applications.
 
 Beyond these roles, I collaborate with academic and industrial partners including [Prof. Sören Pirk](https://www.vcai-lab.org/), [Prof. Evgeny Kharlamov](https://scholar.google.de/citations?user=-slpMF8AAAAJ&hl=en), and [Prof. Kristian Kersting](https://ml-research.github.io/people/kkersting/), and supervise industry-funded PhD researchers with partners such as Siemens, Huawei, and Bosch.
 
