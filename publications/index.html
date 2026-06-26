@@ -1048,6 +1048,15 @@
 
   });
 </script> </article> </div> </div> <div id="page-veil" aria-hidden="true"></div> <script>
+  function clearPageTransitionVeils() {
+    document.querySelectorAll('.page-transition-veil').forEach(function(veil) {
+      veil.remove();
+    });
+  }
+
+  window.addEventListener('pageshow', clearPageTransitionVeils);
+  window.addEventListener('pagehide', clearPageTransitionVeils);
+
   document.addEventListener('click', function(e) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var a = e.target.closest('a[href]');
@@ -1060,6 +1069,7 @@
     e.preventDefault();
     var href = a.href;
     var veil = document.createElement('div');
+    veil.className = 'page-transition-veil';
     veil.style.cssText = 'position:fixed;inset:0;background:var(--global-bg-color);z-index:9999;pointer-events:all;opacity:0;transition:opacity 0.15s ease';
     document.body.appendChild(veil);
     requestAnimationFrame(function() {
