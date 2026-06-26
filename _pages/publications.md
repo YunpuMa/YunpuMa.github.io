@@ -350,6 +350,17 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
     {{ topic.slug | jsonify }}: {{ topic.papers | jsonify }}{% unless forloop.last %},{% endunless %}
     {%- endfor %}
   };
+  const TOPIC_LABELS = {
+    {%- for topic in site.data.research_topics %}
+    {{ topic.slug | jsonify }}: {{ topic.label | jsonify }}{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  };
+  // Reverse lookup: lowercase label or slug → slug
+  const TOPIC_SLUG_MAP = {};
+  for (const [slug, label] of Object.entries(TOPIC_LABELS)) {
+    TOPIC_SLUG_MAP[slug] = slug;
+    TOPIC_SLUG_MAP[label.toLowerCase()] = slug;
+  }
 </script>
 
 <script>
@@ -529,13 +540,15 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
     const finishBibSearch = () => {
       const hash = window.location.hash ? decodeURIComponent(window.location.hash.substring(1)) : "";
       if (hash.startsWith("topic:")) {
-        applyTopicFilter(hash.slice(6));
+        const slug = hash.slice(6);
+        const input = document.getElementById("bibsearch");
+        if (input) input.value = "topic: " + (TOPIC_LABELS[slug] || slug);
+        applyTopicFilter(slug);
         CSS.highlights?.delete("search");
         updateYearCounts();
         document.documentElement.classList.remove("bibsearch-pending");
         return;
       }
-      document.querySelectorAll("ol.bibliography > li, h2.bibliography, ol.bibliography").forEach((el) => el.classList.remove("unloaded"));
       if (shouldSyncBibSearchFromHash) {
         syncBibSearchFromHash();
         shouldSyncBibSearchFromHash = false;
@@ -546,11 +559,30 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
       document.documentElement.classList.remove("bibsearch-pending");
     };
     const scheduleFinishedBibSearch = () => setTimeout(finishBibSearch, 0);
-    document.getElementById("bibsearch")?.addEventListener("input", () => {
+
+    // Capture phase: runs before the gem's bubble-phase filterItems listener.
+    // Routes topic: queries to applyTopicFilter and stops propagation so the gem
+    // never receives them. Non-topic input falls through to the gem normally.
+    document.getElementById("bibsearch")?.addEventListener("input", function (event) {
+      const val = this.value.trim();
+      const lower = val.toLowerCase();
+      if (lower.startsWith("topic:")) {
+        event.stopImmediatePropagation();
+        const query = lower.replace(/^topic:\s*/, "");
+        const slug = TOPIC_SLUG_MAP[query] || query;
+        if (TOPIC_MAP[slug]) {
+          applyTopicFilter(slug);
+        } else {
+          document.querySelectorAll(".bibliography, .unloaded").forEach((el) => el.classList.remove("unloaded"));
+        }
+        updateYearCounts();
+        return;
+      }
+      // Non-topic: clear any residual topic hash, then let gem + enhanced search run
       const hash = window.location.hash ? decodeURIComponent(window.location.hash.substring(1)) : "";
       if (hash.startsWith("topic:")) history.replaceState(null, "", window.location.pathname + window.location.search);
       scheduleFinishedBibSearch();
-    });
+    }, true);
     window.addEventListener("hashchange", () => {
       shouldSyncBibSearchFromHash = true;
       document.documentElement.classList.add("bibsearch-pending");
