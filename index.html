@@ -378,6 +378,31 @@
       });
     });
   }, true);
+</script> <div id="wechat-modal" role="dialog" aria-modal="true" aria-label="WeChat QR Code" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;"> <div id="wechat-modal-card" style="position:relative;background:#fff;border-radius:14px;padding:1.5rem 1.5rem 1rem;max-width:260px;width:90%;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.22);"> <button id="wechat-modal-close" aria-label="Close" style="position:absolute;top:0.55rem;right:0.8rem;background:none;border:none;font-size:1.5rem;line-height:1;cursor:pointer;color:#888;padding:0;">×</button> <img src="/assets/img/wechat_qr.jpg" alt="WeChat QR Code" style="width:100%;border-radius:6px;display:block;"> <p style="margin:0.65rem 0 0;font-size:0.82rem;color:#777;">Scan to add on WeChat</p> </div> </div> <style>
+  html[data-theme=dark] #wechat-modal-card { background: #252525; }
+  html[data-theme=dark] #wechat-modal-card p { color: #999; }
+  html[data-theme=dark] #wechat-modal-close { color: #aaa; }
+</style> <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var modal = document.getElementById('wechat-modal');
+    var closeBtn = document.getElementById('wechat-modal-close');
+    var wechatLink = document.querySelector('a[href*="wechat_qr"]');
+    if (!wechatLink || !modal) return;
+
+    // Neutralize href to '#' so the page-transition capture listener ignores it
+    wechatLink.setAttribute('href', '#');
+    wechatLink.setAttribute('role', 'button');
+
+    function openModal() { modal.style.display = 'flex'; closeBtn.focus(); }
+    function closeModal() { modal.style.display = 'none'; wechatLink.focus(); }
+
+    wechatLink.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+    });
+  });
 </script> <footer role="contentinfo" style="position: fixed; bottom: 0; left: 0; background: transparent; font-size: .75rem; z-index: 1030;"> <div class="container mt-0" style="padding: 9px 16px 8px; text-align: left; color: var(--global-text-color-light); text-shadow: 0 0 8px var(--global-bg-color), 0 0 14px var(--global-bg-color);"> © Copyright 2026 Yunpu Ma. LMU Munich </div> </footer> <script>
   window.alFolio = {
     compatBootstrap: false
