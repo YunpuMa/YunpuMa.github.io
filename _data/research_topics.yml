@@ -11,7 +11,7 @@
     - zhang2025swarmagentic # automated agentic system design
 
 - slug: self-improving
-  label: Self-Improving
+  label: Recursive Self-Improvement
   papers:
     - ma2025selfevolving
     - zhang2025swarmagentic
