@@ -17,9 +17,6 @@
     - zhang2025swarmagentic
     - bi2026geometry
     - cheng2026mem2evolve
-    - bi2026echorl
-    - yan2025memoryr1     # RL-based memory management
-    - yan2026memoryr2     # credit assignment for memory agents
 
 - slug: multimodal-learning
   label: Multimodal Learning
