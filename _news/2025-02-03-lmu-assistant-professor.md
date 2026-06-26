@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Joined Ludwig-Maximilians-Universität München as an Assistant Professor.
+Joined Ludwig-Maximilians-Universität München as a Lecturer.
