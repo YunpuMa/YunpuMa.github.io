@@ -1,0 +1,60 @@
+<div id="page-veil" aria-hidden="true"></div>
+
+{% capture footer_contents %}
+  &copy; Copyright {{ site.time | date: '%Y' }}
+  {{ site.first_name }}
+  {{ site.middle_name }}
+  {{ site.last_name }}. {{ site.footer_text }}
+  {% if site.impressum_path %}
+    <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
+  {% endif %}
+  {% if site.last_updated %}
+    Last updated: {{ 'now' | date: '%B %d, %Y' }}.
+  {% endif %}
+{% endcapture %}
+
+<script>
+  document.addEventListener('click', function(e) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var a = e.target.closest('a[href]');
+    if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
+    try {
+      var url = new URL(a.href, location.href);
+      if (url.origin !== location.origin) return;
+      if (url.pathname + url.search === location.pathname + location.search) return;
+    } catch(err) { return; }
+    e.preventDefault();
+    var href = a.href;
+    var veil = document.createElement('div');
+    veil.style.cssText = 'position:fixed;inset:0;background:var(--global-bg-color);z-index:9999;pointer-events:all;opacity:0;transition:opacity 0.15s ease';
+    document.body.appendChild(veil);
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        veil.style.opacity = '1';
+        setTimeout(function() { window.location.href = href; }, 160);
+      });
+    });
+  }, true);
+</script>
+
+{% if site.footer_fixed %}
+  <footer role="contentinfo" style="position: fixed; bottom: 0; left: 0; background: transparent; font-size: .75rem; z-index: 1030;">
+    <div class="container mt-0" style="padding: 9px 16px 8px; text-align: left; color: var(--global-text-color-light); text-shadow: 0 0 8px var(--global-bg-color), 0 0 14px var(--global-bg-color);">
+      {{ footer_contents }}
+    </div>
+  </footer>
+{% else %}
+  <footer class="sticky-bottom mt-5" role="contentinfo" style="background: transparent;">
+    {% if site.newsletter.enabled %}
+      {% if site.plugins contains 'al_newsletter' %}
+        {% include plugins/al_newsletter_form_center.liquid %}
+      {% else %}
+        {% include newsletter.liquid %}
+      {% endif %}
+    {% endif %}
+
+    <div class="container">
+      {{ footer_contents }}
+    </div>
+  </footer>
+{% endif %}

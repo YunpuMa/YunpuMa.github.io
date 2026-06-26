@@ -1,28 +1,107 @@
 # Keep section names aligned with the headings in _pages/profiles.md.
-- name: Alex Morgan
-  role: PhD Student
+- name: Aniri
+  slug: aniri
   section: PhD Students
-  photo: /assets/img/member-placeholder.svg
-  link: "#"
-  research_area: Reliable machine learning
+  photo: /assets/img/people/aniri.jpg
+  link: https://www.linkedin.com/in/aniri-496375264/
+  research_area: VLA, Continual Learning
 
-- name: Sam Rivera
-  role: PhD Student
+- name: Jinhe Bi
+  slug: jinhe-bi
   section: PhD Students
-  photo: /assets/img/member-placeholder.svg
-  link: "#"
-  research_area: Computational modeling
+  photo: /assets/img/people/jinhe-bi.jpeg
+  link: https://jinhe-bi.github.io/
+  research_area: Agentic Post-Training
 
-- name: Taylor Chen
-  role: Master Student
+- name: Yakov Golovanev
+  slug: yakov-golovanev
+  section: PhD Students
+  photo: /assets/img/people/yakov-golovanev.jpeg
+  link: https://www.linkedin.com/in/yakov-golovanev/
+  research_area: Novel Architecture Design
+
+- name: Yilun Liu
+  slug: yilun-liu
+  section: PhD Students
+  photo: /assets/img/people/yilun-liu.jpg
+  link: https://www.linkedin.com/in/liuyilun2000/
+  research_area: Recursive Self-Improvement
+
+- name: Xiaowen Ma
+  slug: xiaowen-ma
+  section: PhD Students
+  photo: /assets/img/people/xiaowen-ma.jpg
+  link: https://www.linkedin.com/in/xiaowen-ma-2808b7256/
+  research_area: Multi-Agentic Reasoning
+
+- name: Mengyue Wang
+  slug: mengyue-wang
+  section: PhD Students
+  photo: /assets/img/people/mengyue-wang.png
+  photo_position: center 18%
+  link: https://www.linkedin.com/in/mengyue-wang-842432257?utm_source=share_via&utm_content=profile&utm_medium=member_ios
+  research_area: Agentic Environment
+
+- name: Yujun Wang
+  slug: yujun-wang
+  section: PhD Students
+  photo: /assets/img/people/yujun-wang.jpg
+  link: https://www.linkedin.com/in/yujun-wang-3a6753261/
+  supervisor: Hinrich Schütze
+  supervisor_link: https://www.cis.uni-muenchen.de/personen/professoren/schuetze/
+  research_area: Agentic Memory
+
+- name: Sikuan Yan
+  slug: sikuan-yan
+  section: PhD Students
+  photo: /assets/img/people/sikuan-yan.jpeg
+  link: https://www.linkedin.com/in/sikuan-yan/
+  research_area: Agentic Memory
+
+- name: Wenxuan Ye
+  slug: wenxuan-ye
+  section: PhD Students
+  photo: /assets/img/people/wenxuan-ye.jpg
+  link: https://www.linkedin.com/in/wenxuan-ye-865047204/
+  supervisor: Georg Carle
+  supervisor_link: https://www.professoren.tum.de/carle-georg
+  research_area: Agentic Reasoning
+
+- name: Zixuan Cao
+  slug: zixuan-cao
   section: Master Students
-  photo: /assets/img/member-placeholder.svg
-  link: "#"
-  research_area: Data-centric methods
+  photo: /assets/img/people/zixuan-cao.jpg
+  photo_position: center 18%
+  link: https://www.linkedin.com/in/zixuan-cao-4a95312a5/
+  description: Student Assistant
+  research_area: Lab Support
 
-- name: Jordan Lee
-  role: Alumnus
-  section: Alumni
-  photo: /assets/img/member-placeholder.svg
-  link: "#"
-  research_area: Scientific computing
+- name: Bosch
+  section: Industry Collaborators
+  photo: /assets/img/academic-industry/bosch.png
+  link:
+  logo: true
+
+- name: Siemens
+  section: Industry Collaborators
+  photo: /assets/img/academic-industry/siemens.png
+  link:
+  logo: true
+
+- name: Apple
+  section: Industry Collaborators
+  photo: /assets/img/academic-industry/apple.png
+  link:
+  logo: true
+
+- name: Huawei
+  section: Industry Collaborators
+  photo: /assets/img/academic-industry/huawei.webp
+  link:
+  logo: true
+
+- name: SAP
+  section: Industry Collaborators
+  photo: /assets/img/academic-industry/sap.png
+  link:
+  logo: true

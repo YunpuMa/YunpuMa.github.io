@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+DEFAULT_OUTPUT=/tmp/al-folio-arxiv-figures
+FIGURE_PATTERN='\.(png|jpe?g|gif|webp|tiff?|bmp|svg|eps|ps|pdf)$'
+
+usage() {
+  cat <<'EOF'
+Usage:
+  bin/extract-arxiv-figures <bib-key> <arxiv-id> [output-directory]
+  bin/extract-arxiv-figures --all [output-directory]
+
+Downloads arXiv source archives, extracts figure files, creates normalized PNGs,
+and ranks a shortlist using filename hints and image dimensions. Source archives
+and candidates are kept outside the repository by default.
+EOF
+}
+
+score_name() {
+  local name=${1,,}
+  local score=0
+
+  if [[ $name =~ teaser ]]; then
+    printf '1000\n'
+    return
+  fi
+
+  [[ $name =~ overview|architecture|framework|pipeline ]] && ((score += 120)) || true
+  [[ $name =~ method|model|system|workflow|schematic ]] && ((score += 80)) || true
+  [[ $name =~ fig(ure)?[_-]?0?1([^0-9]|$) ]] && ((score += 70)) || true
+  [[ $name =~ main|diagram|motivation ]] && ((score += 45)) || true
+  [[ $name =~ result|ablation|curve|plot|appendix|supp|qualitative|quantitative ]] && ((score -= 60)) || true
+  printf '%d\n' "$score"
+}
+
+render_candidate() {
+  local source=$1
+  local destination=$2
+  local extension=${source##*.}
+  extension=${extension,,}
+
+  case "$extension" in
+    pdf)
+      pdftoppm -f 1 -singlefile -png -scale-to 1600 "$source" "${destination%.png}" >/dev/null 2>&1
+      ;;
+    *)
+      convert "$source" -auto-orient -coalesce -delete 1--1 -background white -alpha remove -alpha off -thumbnail '1600x1200>' "$destination" >/dev/null 2>&1
+      ;;
+  esac
+}
+
+extract_one() {
+  local key=$1
+  local arxiv_id=${2%%v*}
+  local output_root=$3
+  local work_dir="$output_root/$key"
+  local archive="$work_dir/source.tar"
+  local source_dir="$work_dir/source"
+  local rendered_dir="$work_dir/rendered"
+  local shortlist_dir="$work_dir/shortlist"
+  local records="$work_dir/candidates.unsorted.tsv"
+
+  rm -rf "$work_dir"
+  mkdir -p "$source_dir" "$rendered_dir" "$shortlist_dir"
+
+  printf 'Downloading %s (%s)\n' "$key" "$arxiv_id"
+  curl --fail --location --http1.1 --retry 5 --retry-all-errors --retry-delay 8 \
+    --user-agent 'LabPage thumbnail curator (mailto:cognitive.yunpu@gmail.com)' \
+    --silent --show-error "https://arxiv.org/e-print/$arxiv_id" -o "$archive"
+
+  if ! tar -xf "$archive" -C "$source_dir" 2>/dev/null; then
+    printf 'Unable to extract source archive for %s\n' "$key" >&2
+    return 1
+  fi
+
+  : > "$records"
+  local index=0
+  while IFS= read -r -d '' figure; do
+    index=$((index + 1))
+    local rendered
+    rendered=$(printf '%s/%04d.png' "$rendered_dir" "$index")
+    if ! render_candidate "$figure" "$rendered"; then
+      continue
+    fi
+
+    local dimensions width height area name_score total_score relative_path
+    dimensions=$(identify -format '%w %h' "$rendered" 2>/dev/null || printf '0 0')
+    read -r width height <<< "$dimensions"
+    area=$((width * height))
+    name_score=$(score_name "$(basename "$figure")")
+    total_score=$name_score
+    ((area >= 150000)) && ((total_score += 20)) || true
+    ((width > height)) && ((total_score += 15)) || true
+    ((width < 300 || height < 180)) && ((total_score -= 50)) || true
+    relative_path=${figure#"$source_dir/"}
+    printf '%d\t%d\t%d\t%d\t%s\t%s\n' \
+      "$total_score" "$width" "$height" "$area" "$rendered" "$relative_path" >> "$records"
+  done < <(find "$source_dir" -type f -regextype posix-extended -iregex ".*$FIGURE_PATTERN" -print0)
+
+  sort -t $'\t' -k1,1nr -k4,4nr "$records" > "$work_dir/candidates.tsv"
+  head -n 8 "$work_dir/candidates.tsv" | while IFS=$'\t' read -r score width height area rendered relative_path; do
+    local target
+    target=$(printf '%s/%+04d-%s' "$shortlist_dir" "$score" "$(basename "$rendered")")
+    cp "$rendered" "$target"
+    printf '%s\t%sx%s\t%s\n' "$(basename "$target")" "$width" "$height" "$relative_path"
+  done > "$work_dir/shortlist.tsv"
+
+  printf '  figures: %d, shortlist: %s\n' "$index" "$shortlist_dir"
+}
+
+if [[ ${1:-} == --all ]]; then
+  output_root=${2:-$DEFAULT_OUTPUT}
+  while IFS=: read -r key arxiv_id; do
+    key=${key//[[:space:]]/}
+    arxiv_id=${arxiv_id//[[:space:]\"]/}
+    [[ -z $key || $key == \#* ]] && continue
+    extract_one "$key" "$arxiv_id" "$output_root"
+    sleep 4
+  done < "$ROOT_DIR/_data/publication_sources.yml"
+elif [[ $# -ge 2 && $# -le 3 ]]; then
+  extract_one "$1" "$2" "${3:-$DEFAULT_OUTPUT}"
+else
+  usage >&2
+  exit 2
+fi

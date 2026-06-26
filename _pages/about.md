@@ -1,18 +1,31 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 
 profile:
   align: right
-  image: profile-placeholder.svg
+  image: portrait/prof_pic-800.webp
   image_circular: false
+  chips:
+    - label: Assistant Professor
+      sublabel: LMU Munich
+      url: https://www.lmu.de/
+    - label: Research Scientist
+      sublabel: Huawei Research
+      url: https://huaweiresearchcentergermanyaustria.teamtailor.com/
+    - label: Group Leader
+      sublabel: TRESP Lab
+      url: https://tresp-lab.github.io/
+    - label: Member
+      sublabel: MCML
+      url: https://mcml.ai/
 
 selected_papers: false
 social: false
 
 announcements:
-  enabled: true
+  enabled: false
   scrollable: false
   limit: 3
 
@@ -20,25 +33,197 @@ latest_posts:
   enabled: false
 ---
 
-### About Me
+<style>
+  h3.accented {
+    border-left: 4px solid var(--global-theme-color);
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .lead-para {
+    font-size: 1.07rem;
+    line-height: 1.8;
+  }
+  .post-header {
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 0.75rem;
+    padding: 1.5rem 1.75rem 0.75rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 24px rgba(78, 111, 163, 0.06);
+  }
+  .research-interest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.65rem;
+    margin: 1rem 0 0.5rem;
+  }
+  .research-interest-card {
+    position: relative;
+    display: block;
+    padding: 0.75rem 0.9rem;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: none;
+    border-radius: 0.35rem;
+    color: var(--global-text-color);
+    font-size: 0.92rem;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(78, 111, 163, 0.09);
+    transform: translateZ(0) scale(1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .research-interest-card:hover,
+  .research-interest-card:focus-visible {
+    color: var(--global-text-color);
+    text-decoration: none;
+    transform: translateZ(0) scale(1.015);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 1;
+  }
+  .research-interest-card::after {
+    content: "Click to view relevant papers";
+    position: absolute;
+    top: 0.55rem;
+    right: 0.7rem;
+    color: var(--global-text-color-light);
+    font-size: 0.68rem;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+  }
+  .research-interest-card:hover::after,
+  .research-interest-card:focus-visible::after {
+    opacity: 0.8;
+    transition-delay: 0.5s;
+  }
+  .research-interest-card i {
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    color: var(--global-theme-color);
+    font-size: 1.1rem;
+  }
+  #affiliation-chips a {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(78, 111, 163, 0.08);
+    transform: translateZ(0) scale(1);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  #affiliation-chips a:hover {
+    transform: translateZ(0) scale(1.06);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+  }
+  .profile {
+    margin-top: 1.25rem;
+  }
+  .profile picture {
+    aspect-ratio: 4 / 4.25;
+    overflow: hidden;
+  }
+  .profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 46%;
+  }
+  html[data-theme=dark] .post-header {
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  }
+  html[data-theme=dark] .research-interest-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  html[data-theme=dark] .research-interest-card:hover,
+  html[data-theme=dark] .research-interest-card:focus-visible {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  html[data-theme=dark] #affiliation-chips a {
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  html[data-theme=dark] #affiliation-chips a:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+  /* Ghost atom — right side of post-header */
+  .post-header { position: relative; overflow: hidden; }
+  .atom-deco {
+    position: absolute;
+    right: 3.5rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 160px;
+    height: 160px;
+    color: var(--global-theme-color);
+    opacity: 0.55;
+    pointer-events: none;
+    filter: drop-shadow(0 0 16px rgba(78, 111, 163, 0.16));
+  }
+  .atom-deco svg {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: atom-spin 32s linear infinite;
+    animation-delay: var(--atom-spin-delay, 0s);
+    will-change: transform;
+  }
+  @keyframes atom-spin {
+    to {
+      transform: rotateZ(360deg);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #affiliation-chips a { transition: none; }
+    .research-interest-card { transition: none; }
+    .research-interest-card:hover,
+    .research-interest-card:focus-visible { transform: none; }
+    .atom-deco svg { animation: none; }
+  }
+</style>
 
-I develop intelligent systems that integrate memory, reasoning, and multimodal understanding to act autonomously in open-ended environments. My goal is to build foundation models and agentic systems that continually learn, collaborate, and adapt to complex real-world tasks.
 
-I am currently an **Assistant Professor** at [LMU Munich](https://www.lmu.de/), working with [Prof. Hinrich Schütze](https://www.cis.lmu.de/~hs/). I teach *From Large Language Models to AI Agents* and *Information Extraction*. In parallel, I am an **external research scientist** at the Huawei Research Center, where I supervise PhD students working on agentic AI.
+<h3 class="accented">About Me</h3>
 
-I am also a group leader at the [TRESP Lab](https://tresp-lab.github.io/) and am affiliated with the [Munich Center for Machine Learning (MCML)](https://mcml.ai/). At TRESP Lab, I co-supervise PhD students with [Prof. Volker Tresp](https://tresp-lab.github.io/) and Prof. Thomas Seidl. Before joining LMU in my current role, I was a research scientist at Siemens, where I worked on quantum machine learning for industrial applications in collaboration with academic and industry partners.
+<p class="lead-para">I develop intelligent systems that integrate memory, reasoning, and multimodal understanding to act autonomously in open-ended environments. My goal is to build foundation models and agentic systems that continually learn, collaborate, and adapt to complex real-world tasks.</p>
 
-I collaborate closely with academic and industrial partners, including [Prof. Hinrich Schütze](https://www.cis.lmu.de/~hs/), [Prof. Volker Tresp](https://tresp-lab.github.io/), [Prof. Sören Pirk](https://www.vcai-lab.org/), [Prof. Evgeny Kharlamov](https://scholar.google.de/citations?user=-slpMF8AAAAJ&hl=en), and [Prof. Kristian Kersting](https://ml-research.github.io/people/kkersting/). I also supervise industry-funded PhD researchers working with partners including Siemens, Huawei, and Bosch.
+
+I am currently an **Assistant Professor** at [LMU Munich](https://www.lmu.de/), working with [Prof. Hinrich Schütze](https://www.cis.lmu.de/~hs/). In parallel, I am an **external research scientist** at the Huawei Research Center, where I supervise PhD students on agentic AI.
+
+I am also a **group leader** at the [TRESP Lab](https://tresp-lab.github.io/) and am affiliated with the [Munich Center for Machine Learning (MCML)](https://mcml.ai/). At TRESP Lab, I co-supervise PhD students with [Prof. Volker Tresp](https://tresp-lab.github.io/) and Prof. Thomas Seidl. Before joining LMU in my current role, I was a research scientist at Siemens, working on quantum machine learning for industrial applications.
+
+Beyond these roles, I collaborate with academic and industrial partners including [Prof. Sören Pirk](https://www.vcai-lab.org/), [Prof. Evgeny Kharlamov](https://scholar.google.de/citations?user=-slpMF8AAAAJ&hl=en), and [Prof. Kristian Kersting](https://ml-research.github.io/people/kkersting/), and supervise industry-funded PhD researchers with partners such as Siemens, Huawei, and Bosch.
 
 I received my PhD in Computer Science from LMU Munich under the supervision of Prof. Volker Tresp. My doctoral research connected relational learning with cognition, quantum computing, and causality. Before moving into computer science, I studied theoretical physics and conducted research on gauge/gravity duality at the Max Planck Institute for Physics.
 
-My current research explores AI agents with persistent memory, advanced reasoning capabilities, and the ability to operate autonomously in open-ended settings. A central focus is on LLM-based multi-agent systems that communicate, coordinate, and improve through reflection and experience. I am particularly interested in agents that process language, vision, and structured knowledge, and in translating these capabilities into robust systems for scientific and industrial applications.
+My current research focuses on LLM-based multi-agent systems that communicate, coordinate, and improve through reflection and experience. I am particularly interested in agents that combine language, vision, and structured knowledge, and in translating these capabilities into robust systems for scientific and industrial applications.
 
-### Research Interests
+<hr style="border:0;border-top:1px solid var(--global-divider-color);margin:1.75rem 0">
+  
+<h3 class="accented">Research Interests</h3>
 
-- Memory-augmented agents and long-term adaptation
-- Multi-agent systems, communication, and coordination
-- Self-improving agents and automated agentic system design
-- Agentic web systems and autonomous task execution
-- Multimodal foundation models and long-video understanding
-- Temporal knowledge graphs and structured reasoning
+<div class="research-interest-grid">
+  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#memory%20AND%20agent"><i class="bi bi-cpu"></i>Memory-augmented agents and long-term adaptation</a>
+  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#multi-agent"><i class="bi bi-people"></i>Multi-agent systems, communication, and coordination</a>
+  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#(self-evolving%20OR%20self-improving)%20AND%20agent"><i class="bi bi-arrow-repeat"></i>Self-improving agents and automated agentic system design</a>
+  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#web AND agent"><i class="bi bi-globe"></i>Agentic web systems and autonomous task execution</a>
+  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#video OR VLLM"><i class="bi bi-eye"></i>Multimodal foundation models and long-video understanding</a>
+  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#knowledge AND graph"><i class="bi bi-diagram-3"></i>Temporal knowledge graphs and structured reasoning</a>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var atom = document.querySelector('.atom-deco');
+    if (atom) {
+      var now = Date.now() / 1000;
+      atom.style.setProperty('--atom-spin-delay', -((now % 32)) + 's');
+    }
+  });
+</script>

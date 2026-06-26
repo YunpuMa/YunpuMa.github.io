@@ -1,0 +1,133 @@
+---
+layout: default
+---
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      {% if site.title == 'blank' %}
+        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+        {{ site.last_name }}
+      {% elsif site.title contains 'Dr. ' %}
+        <span id="about-name-prefix">Dr.</span> <strong id="about-name">{{ site.title | remove: 'Dr. ' }}</strong>
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </h1>
+    <p class="desc">{{ page.subtitle }}</p>
+    {% if page.profile.chips %}
+      <div id="affiliation-chips" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin:0.75rem 0 1.75rem">
+        {% for chip in page.profile.chips %}
+          {% if chip.url %}
+            <a href="{{ chip.url }}" style="display:inline-flex;flex-direction:column;padding:0.3rem 0.85rem;border-radius:0.25rem;text-decoration:none;white-space:nowrap" target="_blank" rel="noopener">
+              <span style="font-size:0.8rem;font-weight:500;color:var(--global-theme-color)">{{ chip.label }}</span>
+              <span style="font-size:0.72rem;color:var(--global-text-color-light)">{{ chip.sublabel }}</span>
+            </a>
+          {% else %}
+            <span style="display:inline-flex;flex-direction:column;padding:0.3rem 0.85rem;border-radius:0.25rem;white-space:nowrap">
+              <span style="font-size:0.8rem;font-weight:500;color:var(--global-theme-color)">{{ chip.label }}</span>
+              <span style="font-size:0.72rem;color:var(--global-text-color-light)">{{ chip.sublabel }}</span>
+            </span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="atom-deco" aria-hidden="true">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="ado1" d="M 190 100 A 90 28 0 1 1 10 100 A 90 28 0 1 1 190 100"/>
+          <path id="ado2" d="M 145 177.9 A 90 28 60 1 1 55 22.1 A 90 28 60 1 1 145 177.9"/>
+          <path id="ado3" d="M 55 177.9 A 90 28 120 1 1 145 22.1 A 90 28 120 1 1 55 177.9"/>
+          <filter id="adoglow" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Dashed orbit tracks -->
+        <use href="#ado1" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="6 4"/>
+        <use href="#ado2" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="6 4"/>
+        <use href="#ado3" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="6 4"/>
+        <!-- Nucleus: halo ring + core -->
+        <circle cx="100" cy="100" r="14" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.4"/>
+        <circle cx="100" cy="100" r="8" fill="currentColor" filter="url(#adoglow)"/>
+        <!-- Electrons -->
+        <circle r="4" fill="currentColor" filter="url(#adoglow)">
+          <animateMotion dur="3s" repeatCount="indefinite" rotate="none"><mpath href="#ado1"/></animateMotion>
+        </circle>
+        <circle r="4" fill="currentColor" filter="url(#adoglow)">
+          <animateMotion dur="4.5s" repeatCount="indefinite" rotate="none"><mpath href="#ado2"/></animateMotion>
+        </circle>
+        <circle r="4" fill="currentColor" filter="url(#adoglow)">
+          <animateMotion dur="3.5s" repeatCount="indefinite" rotate="none"><mpath href="#ado3"/></animateMotion>
+        </circle>
+      </svg>
+    </div>
+  </header>
+
+  <article>
+    {% if page.profile %}
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+        {% if page.profile.image %}
+          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {% if page.profile.image_circular %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+          {% else %}
+            {% assign profile_image_class = 'img-fluid z-depth-1
+      rounded' %}
+          {% endif %}
+          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
+      30vw, 95vw"{% endcapture %}
+          {%
+            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+            cache_bust=true
+          %}
+        {% endif %}
+        {% if page.profile.more_info %}
+          <div class="more-info">{{ page.profile.more_info }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="clearfix">{{ content }}</div>
+
+    <!-- News -->
+    {% if page.announcements and page.announcements.enabled %}
+      <h2>
+        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+      </h2>
+      {% include news.liquid limit=true %}
+    {% endif %}
+
+    <!-- Latest posts -->
+    {% if page.latest_posts and page.latest_posts.enabled %}
+      <h2>
+        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+      </h2>
+      {% include latest_posts.liquid %}
+    {% endif %}
+
+    <!-- Selected papers -->
+    {% if page.selected_papers %}
+      <h2>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+      </h2>
+      {% include selected_papers.liquid %}
+    {% endif %}
+
+    <!-- Social -->
+    {% if page.social %}
+      <div class="social">
+        <div class="contact-icons">{% social_links %}</div>
+
+        <div class="contact-note">{{ site.contact_note }}</div>
+      </div>
+    {% endif %}
+
+    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
+      {% if site.plugins contains 'al_newsletter' %}
+        {% include plugins/al_newsletter_form_center_margin.liquid %}
+      {% else %}
+        {% include newsletter.liquid center=true %}
+      {% endif %}
+    {% endif %}
+  </article>
+</div>

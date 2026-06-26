@@ -1,0 +1,37 @@
+# Assets downloaded from https://tresp-lab.github.io/people/ on 2026-06-23.
+phd_students:
+  - name: Jinhe Bi
+    photo: /assets/img/people/jinhe-bi.jpeg
+    source: https://tresp-lab.github.io/assets/img/people/jinhe-bi.jpeg
+  - name: Sikuan Yan
+    photo: /assets/img/people/sikuan-yan.jpeg
+    source: https://tresp-lab.github.io/assets/img/people/yansikuan.jpeg
+  - name: Yakov Golovanev
+    requested_as: Yakov
+    photo: /assets/img/people/yakov-golovanev.jpeg
+    source: https://tresp-lab.github.io/assets/img/people/Iakov.jpeg
+
+industry_collaborators:
+  - name: Bosch
+    image: /assets/img/academic-industry/bosch.png
+    source: https://tresp-lab.github.io/assets/img/academic-industry/bosch.png
+  - name: Siemens
+    image: /assets/img/academic-industry/siemens.png
+    source: https://tresp-lab.github.io/assets/img/academic-industry/siemens.png
+  - name: Apple
+    image: /assets/img/academic-industry/apple.png
+    source: https://tresp-lab.github.io/assets/img/academic-industry/apple.png
+  - name: Huawei
+    image: /assets/img/academic-industry/huawei.webp
+    source: https://tresp-lab.github.io/assets/img/academic-industry/huawei.webp
+  - name: SAP
+    image: /assets/img/academic-industry/sap.png
+    source: https://tresp-lab.github.io/assets/img/academic-industry/sap.png
+
+not_found_on_source_page:
+  - Wenxuan Ye
+  - Aniri
+  - Yilun Liu
+  - Yujun Wang
+  - Mengyue Wang
+  - Xiaowen Ma

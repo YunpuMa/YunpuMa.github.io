@@ -1,37 +1,128 @@
 ---
 layout: page
 permalink: /people/
-title: people
-description: Members of the research group.
+title: People
+description: Members of the research group and collaborators.
 nav: true
-nav_order: 4
+nav_order: 5
 ---
 
 <style>
+  .post-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .post-description {
+    font-size: 0.82rem;
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    color: rgba(64, 68, 76, 0.92);
+    margin: 0.4rem 0 0;
+  }
+  .post-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--global-divider-color);
+    margin-bottom: 2rem;
+  }
   .people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem; margin: 1rem 0 2.5rem; }
-  .person-card { border: 1px solid var(--global-divider-color); border-radius: 0.25rem; overflow: hidden; background: var(--global-card-bg-color); }
-  .person-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; }
-  .person-card-body { padding: 1rem; }
-  .person-card h3 { font-size: 1.05rem; margin: 0 0 0.2rem; }
-  .person-card .role { color: var(--global-text-color-light); margin-bottom: 0.65rem; }
-  .person-card .research-area { border-top: 1px solid var(--global-divider-color); font-size: 0.9rem; margin: 0; padding: 0.7rem 1rem; }
+  .person-card {
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: rgba(78, 111, 163, 0.06);
+    box-shadow: 0 4px 20px rgba(78, 111, 163, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    transition: box-shadow 0.22s ease, transform 0.22s ease;
+  }
+  .person-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; }
+  .person-card img.logo { aspect-ratio: 4 / 3; object-fit: contain; padding: 1.25rem; background: #fff; }
+  .person-card-body {
+    padding: 0.9rem 1rem 0.55rem;
+    background: transparent;
+  }
+  .person-card h3 { font-size: 1.05rem; margin: 0 0 0.12rem; }
+  .person-card .role {
+    color: var(--global-text-color-light);
+    font-size: 0.76rem;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0.1rem 0 0;
+    min-height: 1.15em;
+    white-space: nowrap;
+  }
+  .person-card .role.empty { visibility: hidden; }
+  .person-card .role .person-supervisor { white-space: nowrap; }
+  .person-card .role a { color: rgba(54, 86, 138, 0.92); text-decoration: none; }
+  .person-card .role a:hover,
+  .person-card .role a:focus-visible { color: rgba(54, 86, 138, 0.92); text-decoration: none; opacity: 0.82; }
+  .person-card .research-area { font-size: 0.9rem; margin: 0; padding: 0 1rem 0.8rem; background: transparent; }
+  .person-card:hover {
+    transform: translateZ(0) scale(1.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  html[data-theme=dark] .person-card {
+    background: rgba(122, 159, 196, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  }
+  html[data-theme=dark] .person-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  h2 { border-left: 4px solid var(--global-theme-color); padding-left: 0.75rem; }
 </style>
 
-{% assign sections = "PhD Students,Master Students,Alumni" | split: "," %}
+
+{% assign sections = "PhD Students,Master Students,Industry Collaborators,Alumni" | split: "," %}
 {% for section in sections %}
+{% assign members = site.data.people | where: "section", section %}
+{% if members.size > 0 %}
 ## {{ section }}
 
 <div class="people-grid">
-  {% assign members = site.data.people | where: "section", section %}
   {% for person in members %}
     <article class="person-card">
-      <img src="{{ person.photo | relative_url }}" alt="Photo of {{ person.name }}">
+      {% if person.photo %}
+        <img
+          class="{% if person.logo %}logo{% endif %}"
+          src="{{ person.photo | relative_url | bust_file_cache }}"
+          alt="{% if person.logo %}{{ person.name }} logo{% else %}Photo of {{ person.name }}{% endif %}"
+          {% if person.photo_position %}style="object-position: {{ person.photo_position }};"{% endif %}
+        >
+      {% endif %}
+      {% unless person.logo %}
       <div class="person-card-body">
-        <h3><a href="{{ person.link }}">{{ person.name }}</a></h3>
-        <div class="role">{{ person.role }}</div>
+        <h3>
+          {% if person.link %}
+            <a href="{{ person.link | relative_url }}">{{ person.name }}</a>
+          {% else %}
+            {{ person.name }}
+          {% endif %}
+        </h3>
+        <div class="role{% unless person.supervisor or person.description or person.left or person.joined %} empty{% endunless %}">
+          {%- if person.supervisor -%}
+            co-supervisor:
+            <span class="person-supervisor">
+              {%- if person.supervisor_link -%}
+                <a href="{{ person.supervisor_link }}">{{ person.supervisor }}</a>
+              {%- else -%}
+                {{ person.supervisor }}
+              {%- endif -%}
+            </span>
+          {%- elsif person.description -%}
+            {{ person.description }}
+          {%- elsif person.left -%}
+            {{ person.joined }} – {{ person.left }}
+          {%- elsif person.joined -%}
+            Joined {{ person.joined }}
+          {%- endif -%}
+        </div>
       </div>
+      {% endunless %}
+      {% if person.research_area %}
       <p class="research-area">{{ person.research_area }}</p>
+      {% endif %}
     </article>
   {% endfor %}
 </div>
+{% endif %}
 {% endfor %}

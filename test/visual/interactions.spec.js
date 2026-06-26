@@ -1,6 +1,188 @@
 const { test, expect } = require("@playwright/test");
 const { preparePage, stabilizeVisuals } = require("./helpers");
 
+test("research interest cards zoom and reveal their publication hint", async ({ page }) => {
+  await preparePage(page, "light");
+  const homeUrl = process.env.HOME_TEST_URL || "/al-folio/";
+  if (homeUrl.startsWith("http://127.0.0.1:4173/")) {
+    await page.route("http://127.0.0.1:4173/al-folio/**", (route) => {
+      const url = route.request().url().replace("http://127.0.0.1:4173/al-folio/", "http://127.0.0.1:4173/");
+      return route.continue({ url });
+    });
+  }
+  await page.goto(homeUrl, { waitUntil: "domcontentloaded" });
+
+  const cards = page.locator(".research-interest-card");
+  await expect(cards).toHaveCount(6);
+  const card = cards.first();
+  await expect(card).toHaveAttribute("href", /\/publications\/#memory%20AND%20agent$/);
+  await expect(cards.nth(2)).toHaveAttribute("href", /\/publications\/#\(self-evolving%20OR%20self-improving\)%20AND%20agent$/);
+  await card.hover();
+  await page.waitForTimeout(800);
+
+  const hoverStyle = await card.evaluate((node) => {
+    const transform = getComputedStyle(node).transform;
+    const hint = getComputedStyle(node, "::after");
+    return {
+      transform,
+      hintContent: hint.content,
+      hintOpacity: Number.parseFloat(hint.opacity),
+    };
+  });
+  expect(hoverStyle.transform).not.toBe("none");
+  expect(hoverStyle.hintContent).toContain("Click to read relevant papers");
+  expect(hoverStyle.hintOpacity).toBeGreaterThan(0);
+
+  await card.click();
+  await expect(page.locator("#bibsearch")).toHaveValue("memory AND agent");
+  const totalPapers = await page.locator("ol.bibliography > li").count();
+  const visiblePapers = await page.locator("ol.bibliography > li:not(.unloaded)").count();
+  expect(visiblePapers).toBeGreaterThan(0);
+  expect(visiblePapers).toBeLessThan(totalPapers);
+  const visibleText = await page.locator("ol.bibliography > li:not(.unloaded)").allInnerTexts();
+  expect(visibleText.every((text) => text.toLowerCase().includes("memory") && text.toLowerCase().includes("agent"))).toBeTruthy();
+  expect(await page.evaluate(() => !CSS.highlights || !CSS.highlights.has("search"))).toBeTruthy();
+
+  await page.evaluate(() => {
+    window.location.hash = "(self-evolving OR self-improving) AND agent";
+  });
+  await expect(page.locator("#bibsearch")).toHaveValue("(self-evolving OR self-improving) AND agent");
+  await expect.poll(() => page.locator("ol.bibliography > li:not(.unloaded)").count()).toBeGreaterThan(0);
+  const orResults = await page.locator("ol.bibliography > li:not(.unloaded)").allInnerTexts();
+  expect(
+    orResults.every((text) => {
+      const normalized = text.toLowerCase();
+      return normalized.includes("agent") && (normalized.includes("self-evolving") || normalized.includes("self-improving"));
+    })
+  ).toBeTruthy();
+
+  await page.evaluate(() => {
+    window.location.hash = "agent AND NOT memory";
+  });
+  await expect(page.locator("#bibsearch")).toHaveValue("agent AND NOT memory");
+  await expect.poll(() => page.locator("ol.bibliography > li:not(.unloaded)").count()).toBeGreaterThan(0);
+  const notResults = await page.locator("ol.bibliography > li:not(.unloaded)").allInnerTexts();
+  expect(
+    notResults.every((text) => {
+      const normalized = text.toLowerCase();
+      return normalized.includes("agent") && !normalized.includes("memory");
+    })
+  ).toBeTruthy();
+});
+
+test("publication venues and years use separate lines", async ({ page }) => {
+  await preparePage(page, "light");
+  const publicationsUrl = process.env.PUBLICATIONS_TEST_URL || "/al-folio/publications/";
+  await page.goto(publicationsUrl, { waitUntil: "domcontentloaded" });
+
+  const venueRows = page.locator(".publications .periodical:has(> em)");
+  expect(await venueRows.count()).toBeGreaterThan(0);
+  const separators = await venueRows.evaluateAll((rows) =>
+    rows.map((row) => {
+      const venue = row.querySelector(":scope > em");
+      return {
+        nextElement: venue.nextElementSibling?.tagName,
+        trailingText: Array.from(row.childNodes)
+          .slice(Array.from(row.childNodes).indexOf(venue) + 1)
+          .map((node) => node.textContent)
+          .join("")
+          .trim(),
+      };
+    })
+  );
+  expect(separators.every(({ nextElement, trailingText }) => nextElement === "BR" && !trailingText.startsWith(","))).toBeTruthy();
+
+  const yearOnlyRows = page.locator(".publications .periodical").filter({ hasText: /^\s*\d{4}\s*$/ });
+  expect(await yearOnlyRows.count()).toBeGreaterThan(0);
+  const yearsAreLast = await yearOnlyRows.evaluateAll((rows) =>
+    rows.every((year) => {
+      const metadata = Array.from(year.parentElement.children).filter(
+        (element) => element.classList.contains("periodical") && element.textContent.trim()
+      );
+      return metadata.at(-1) === year;
+    })
+  );
+  expect(yearsAreLast).toBeTruthy();
+});
+
+test("publication row toggles after an earlier text selection", async ({ page }) => {
+  await preparePage(page, "light");
+  const publicationsUrl = process.env.PUBLICATIONS_TEST_URL || "/al-folio/publications/";
+  await page.goto(publicationsUrl, { waitUntil: "domcontentloaded" });
+
+  const row = page.locator(".publications ol.bibliography > li.has-abstract").first();
+  const title = row.locator(".title");
+  const rowBox = await row.boundingBox();
+  expect(rowBox).not.toBeNull();
+
+  await title.selectText();
+  await expect.poll(() => page.evaluate(() => window.getSelection()?.toString().length || 0)).toBeGreaterThan(0);
+
+  const wasOpen = await row.evaluate((node) => node.classList.contains("abstract-open"));
+  await page.mouse.click(rowBox.x + rowBox.width - 8, rowBox.y + 8);
+  await expect(row).toHaveClass(wasOpen ? /^(?!.*abstract-open)/ : /abstract-open/);
+
+  await row.hover();
+  await expect.poll(() => row.evaluate((node) => Number.parseFloat(window.getComputedStyle(node, "::after").opacity))).toBeGreaterThan(0);
+});
+
+test("publication close hint returns after selecting abstract text and leaving it", async ({ page }) => {
+  await preparePage(page, "light");
+  const publicationsUrl = process.env.PUBLICATIONS_TEST_URL || "/al-folio/publications/";
+  if (publicationsUrl.startsWith("http://127.0.0.1:4173/")) {
+    await page.route("http://127.0.0.1:4173/al-folio/**", (route) => {
+      const url = route.request().url().replace("http://127.0.0.1:4173/al-folio/", "http://127.0.0.1:4173/");
+      return route.continue({ url });
+    });
+  }
+  await page.goto(publicationsUrl, { waitUntil: "networkidle" });
+
+  const row = page.locator(".publications ol.bibliography > li.has-abstract").first();
+  const rowBox = await row.boundingBox();
+  expect(rowBox).not.toBeNull();
+  await row.click({ position: { x: rowBox.width - 8, y: 8 } });
+  await expect(row).toHaveClass(/abstract-open/);
+
+  const abstractText = row.locator(".abstract p");
+  await abstractText.scrollIntoViewIfNeeded();
+  const abstractBox = await abstractText.boundingBox();
+  expect(abstractBox).not.toBeNull();
+  await page.mouse.move(abstractBox.x + 4, abstractBox.y + 8);
+  await page.mouse.down();
+  await page.mouse.move(abstractBox.x + Math.min(abstractBox.width - 4, 180), abstractBox.y + 8, { steps: 10 });
+  await page.mouse.up();
+  await expect.poll(() => page.evaluate(() => window.getSelection()?.toString().length || 0)).toBeGreaterThan(0);
+
+  const updatedRowBox = await row.boundingBox();
+  await page.mouse.move(updatedRowBox.x + updatedRowBox.width - 8, updatedRowBox.y + 8);
+  await page.waitForTimeout(2000);
+  const hint = await row.evaluate((node) => {
+    const style = window.getComputedStyle(node, "::after");
+    return { content: style.content, opacity: Number.parseFloat(style.opacity) };
+  });
+  expect(hint.content).toContain("Click to close the abstract");
+  expect(hint.opacity).toBeGreaterThan(0);
+
+  const beforeClose = await abstractText.evaluate((node) => ({
+    fontSize: getComputedStyle(node).fontSize,
+    height: node.closest(".abstract").getBoundingClientRect().height,
+  }));
+  await page.mouse.click(updatedRowBox.x + updatedRowBox.width - 8, updatedRowBox.y + 8);
+  await page.waitForTimeout(80);
+  const duringClose = await abstractText.evaluate((node) => ({
+    fontSize: getComputedStyle(node).fontSize,
+    height: node.closest(".abstract").getBoundingClientRect().height,
+    opacity: Number.parseFloat(getComputedStyle(node.closest(".abstract")).opacity),
+  }));
+  expect(duringClose.fontSize).toBe(beforeClose.fontSize);
+  expect(duringClose.height).toBeGreaterThan(0);
+  expect(duringClose.height).toBeLessThan(beforeClose.height);
+  expect(duringClose.opacity).toBeLessThan(1);
+
+  await page.waitForTimeout(300);
+  await expect.poll(() => abstractText.evaluate((node) => node.closest(".abstract").getBoundingClientRect().height)).toBe(0);
+});
+
 test("publications Abs toggle opens and closes", async ({ page }) => {
   await preparePage(page, "light");
   await page.goto("/al-folio/publications/", { waitUntil: "networkidle" });

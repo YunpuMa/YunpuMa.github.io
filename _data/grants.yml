@@ -1,0 +1,102 @@
+# Add grant entries in the order you want them to appear.
+# Each entry appears on the grants page with a time period, grant name, and short description.
+- time: "2026-09"
+  name: "Huawei Research Grant on HarmonyOS"
+  funding: >-
+    Funding for four PhD positions starting in September 2026, with EUR 1.04M
+    over two years and the possibility of extension for another two years.
+
+- time: "2026-06"
+  name: "BAY.AI: Agentic Mid-Training for Web and OS Agents"
+  funding: >-
+    Funding for one PhD position starting in June 2026, with total funding of EUR 350K.
+  description: >-
+    In this subproject, we study agentic mid-training methods for foundation
+    models, with applications to web agents and operating-system agents. The
+    project connects to the broader Bavarian AI Foundation Model Initiative,
+    which develops open multimodal foundation models for science, public
+    administration, and society.
+  link: "https://www.ai-bay.eu/"
+  image: "/assets/img/grants/bayai_funding.png"
+  image_alt: "BAY.AI funding event group photo"
+
+- time: "2025-06"
+  name: "Huawei Internal Funding: Agentic Memory"
+  funding: >-
+    Funding for one PhD student over three years, with total funding of EUR 400K.
+  description: >-
+    This project investigates agentic memory for multimodal agents, with a focus
+    on multimodal memory for long-form video understanding. The goal is to design
+    agents that can construct, update, retrieve, and verify memories over long
+    temporal horizons, enabling more robust long-context reasoning.
+
+- time: "2026-08"
+  name: "Siemens Research Grant: Multi-Agentic Systems for Industrial Production Applications"
+  funding: >-
+    Funding for two PhD positions, one at LMU and one at Siemens, with total
+    funding of EUR 600K.
+  description: >-
+    The project studies agentic system optimization and industrial multimodal
+    agentic systems for production applications. It focuses on how multiple
+    specialized agents can perceive industrial states, coordinate decisions, and
+    optimize planning and execution in realistic production workflows.
+
+- time: "2026-04"
+  name: "RTG METEOR: Memory-Augmented Vision-Language-Action Models for Embodied Control"
+  funding: >-
+    Funding for 20 PhD positions over five years, with the potential to extend
+    to ten years. Our group will have three PhD positions over the full ten-year
+    period, corresponding to EUR 1M in funding, in collaboration
+    with Prof. Dr. Eyke Huellermeier.
+  description: >-
+    The subproject focuses on memory-augmented vision-language-action models,
+    especially memory during embodied control, including episodic and procedural
+    memory for VLA models.
+  link: "https://rtg-meteor.de/"
+
+- time: "2025-06"
+  name: "MUDS Research Grant: Memory-Augmented LLM for Embodied Control"
+  funding: >-
+    Funding for one PhD position over four years, with total funding of EUR 400K.
+  description: >-
+    This project studies memory-augmented LLMs for embodied control, with
+    emphasis on continual learning, external memory, and the reuse of past
+    interactions, task plans, and corrections. The broader goal is to enable
+    embodied agents to act more robustly in long-horizon, changing environments.
+  link: "https://www.helmholtz-hida.de/en/research/muds-muenchen/"
+
+- time: "2024-06"
+  name: "Huawei Internal Funding: LLM Post-Training"
+  funding: >-
+    Funding for one PhD student over three years, co-supervised with Dr. Xun
+    Xiao and Prof. Dr. Volker Tresp.
+  description: >-
+    This project focuses on post-training methods for large language models,
+    including data-efficient adaptation, reasoning-oriented training, and
+    agent-oriented model improvement.
+
+- time: "2022-07"
+  name: "QCHALLenge: Quantum-Classical Hybrid Optimization Algorithms for Logistics and Production Line Management"
+  funding: >-
+    Funding for half a PhD position over three years, with EUR
+    150K in funding, in collaboration with Prof. Dr. Volker Tresp.
+  description: >-
+    The subproject focuses on neural architecture search for variational quantum
+    circuits and applications to industrial logistics and combinatorial
+    optimization problems. More broadly, QCHALLenge develops hybrid
+    quantum-classical algorithms, concepts, and tools for production and
+    logistics use cases.
+  link: "https://qarlab.de/en/qchallenge-en/"
+
+- time: "2021-04"
+  name: "QLindA: Quantum Reinforcement Learning for Industrial Applications"
+  funding: >-
+    Funding for one PhD position at LMU, with EUR 350K in funding,
+    in collaboration with Prof. Dr. Volker Tresp.
+  description: >-
+    The project investigates how reinforcement learning can be implemented on
+    quantum computers for industrial applications, including process control,
+    distributed automation in smart factories, and production planning. It also
+    develops algorithms, benchmarks, and libraries to make quantum reinforcement
+    learning usable in industrial settings.
+  link: "https://www.quantensysteme.info/projektatlas/projekte/q/qlinda"
