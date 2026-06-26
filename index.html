@@ -323,6 +323,47 @@
     text-align: right;
     margin-top: 0.25rem;
   }
+  .news-info {
+    display: inline;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+    cursor: help;
+    position: relative;
+  }
+  .news-info:focus-visible {
+    outline: none;
+  }
+  .news-info::after {
+    content: attr(data-tooltip);
+    display: block;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px;
+    padding: 6px 10px;
+    background: rgba(30, 30, 30, 0.88);
+    color: #f0f0f0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1.45;
+    border-radius: 5px;
+    pointer-events: none;
+    white-space: normal;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.15s ease 0s;
+    z-index: 100;
+  }
+  .news-info:hover::after,
+  .news-info:focus-visible::after {
+    opacity: 1;
+    transition-delay: 0.1s;
+  }
+  html[data-theme=dark] .news-info::after {
+    background: rgba(220, 220, 220, 0.92);
+    color: #1a1a1a;
+  }
   /* Ghost atom — right side of post-header */
   .post-header { position: relative; overflow: hidden; }
   .atom-deco {
@@ -359,7 +400,7 @@
     .research-interest-card:focus-visible { transform: none; }
     .atom-deco svg { animation: none; }
   }
-</style> <h3 class="accented">About Me</h3> <p class="lead-para">I develop intelligent systems that integrate memory, reasoning, and multimodal understanding to act autonomously in open-ended environments. My goal is to build foundation models and agentic systems that continually learn, collaborate, and adapt to complex real-world tasks.</p> <p>I am currently a <strong>Lecturer</strong> at <a href="https://www.lmu.de/" rel="external nofollow noopener" target="_blank">LMU Munich</a>, where I work with <a href="https://www.cis.lmu.de/~hs/" rel="external nofollow noopener" target="_blank">Prof. Hinrich Schütze</a> on agentic AI and foundation models. In parallel, I am an <strong>external research scientist</strong> at the Huawei Research Center, where I supervise PhD students on agentic AI.</p> <p>I am also a <strong>group leader</strong> at the <a href="https://tresp-lab.github.io/" rel="external nofollow noopener" target="_blank">TRESP Lab</a> and am affiliated with the <a href="https://mcml.ai/" rel="external nofollow noopener" target="_blank">Munich Center for Machine Learning (MCML)</a>. At TRESP Lab, I co-supervise PhD students with <a href="https://tresp-lab.github.io/" rel="external nofollow noopener" target="_blank">Prof. Volker Tresp</a> and Prof. Thomas Seidl. Before joining LMU, I was a research scientist at Siemens, working on quantum machine learning for industrial applications.</p> <p>Beyond these roles, I collaborate with academic and industrial partners including <a href="https://www.vcai-lab.org/" rel="external nofollow noopener" target="_blank">Prof. Sören Pirk</a>, <a href="https://scholar.google.de/citations?user=-slpMF8AAAAJ&amp;hl=en" rel="external nofollow noopener" target="_blank">Prof. Evgeny Kharlamov</a>, and <a href="https://ml-research.github.io/people/kkersting/" rel="external nofollow noopener" target="_blank">Prof. Kristian Kersting</a>, and supervise industry-funded PhD researchers with partners such as Siemens, Huawei, and Bosch.</p> <p>I received my PhD in Computer Science from LMU Munich under the supervision of Prof. Volker Tresp. My doctoral research connected relational learning with cognition, quantum computing, and causality. Before moving into computer science, I studied theoretical physics and conducted research on gauge/gravity duality at the Max Planck Institute for Physics.</p> <p>My current research focuses on LLM-based multi-agent systems that communicate, coordinate, and improve through reflection and experience. I am particularly interested in agents that combine language, vision, and structured knowledge, and in translating these capabilities into robust systems for scientific and industrial applications.</p> <hr style="border:0;border-top:1px solid var(--global-divider-color);margin:1.75rem 0"> <h3 class="accented">Latest News</h3> <div class="news"> <div class="table-responsive"> <table class="table table-sm table-borderless latest-news-table"> <tr> <th scope="row">Jun 2026</th> <td> <p>Gave an invited talk on <strong>Agentic Memory</strong> at the Apple Workshop on Reasoning and Planning 2026.</p> </td> </tr> <tr> <th scope="row">Jun 2026</th> <td> <p>Joined the <strong>BAY.AI PI Meeting</strong> at DLD Health x BAIOSPHERE in Munich <a href="https://dldnews.com/dld-health-2026/" target="_blank" rel="noopener" aria-label="DLD Health x BAIOSPHERE link"><i class="bi bi-box-arrow-up-right"></i></a>.</p> </td> </tr> <tr> <th scope="row">May 2026</th> <td> <p>Gave an invited talk at Huawei’s <span class="news-info" data-tooltip="STW is one of Huawei's highest-profile annual technology summits, organized by its top strategic planning teams and overseas research institutes to discuss future industry directions and technology evolution." aria-label="About STW 2026" tabindex="0">STW 2026</span>.</p> </td> </tr> <tr> <th scope="row">Apr 2026</th> <td> <p>Seven papers have been accepted to ICML 2026.</p> </td> </tr> <tr> <th scope="row">Apr 2026</th> <td> <p>Four papers have been accepted to ACL 2026.</p> </td> </tr> </table> </div> <a class="latest-news-all" href="/news/">View all news →</a> </div> <hr style="border:0;border-top:1px solid var(--global-divider-color);margin:1.75rem 0"> <h3 class="accented">Research Interests</h3> <div class="research-interest-grid"> <a class="research-interest-card" href="/publications/#topic:agentic-ai"><i class="bi bi-cpu"></i>Agentic AI</a> <a class="research-interest-card" href="/publications/#topic:self-improving"><i class="bi bi-arrow-repeat"></i>Self-Improving</a> <a class="research-interest-card" href="/publications/#topic:multimodal-learning"><i class="bi bi-eye"></i>Multimodal Learning</a> <a class="research-interest-card" href="/publications/#topic:efficient-llms"><i class="bi bi-lightning-charge"></i>Efficient LLMs</a> </div> <script>
+</style> <h3 class="accented">About Me</h3> <p class="lead-para">I develop intelligent systems that integrate memory, reasoning, and multimodal understanding to act autonomously in open-ended environments. My goal is to build foundation models and agentic systems that continually learn, collaborate, and adapt to complex real-world tasks.</p> <p>I am currently a <strong>Lecturer</strong> at <a href="https://www.lmu.de/" rel="external nofollow noopener" target="_blank">LMU Munich</a>, where I work with <a href="https://www.cis.lmu.de/~hs/" rel="external nofollow noopener" target="_blank">Prof. Hinrich Schütze</a> on agentic AI and foundation models. In parallel, I am an <strong>external research scientist</strong> at the Huawei Research Center, where I supervise PhD students on agentic AI.</p> <p>I am also a <strong>group leader</strong> at the <a href="https://tresp-lab.github.io/" rel="external nofollow noopener" target="_blank">TRESP Lab</a> and am affiliated with the <a href="https://mcml.ai/" rel="external nofollow noopener" target="_blank">Munich Center for Machine Learning (MCML)</a>. At TRESP Lab, I co-supervise PhD students with <a href="https://tresp-lab.github.io/" rel="external nofollow noopener" target="_blank">Prof. Volker Tresp</a> and Prof. Thomas Seidl. Before joining LMU, I was a research scientist at Siemens, working on quantum machine learning for industrial applications.</p> <p>Beyond these roles, I collaborate with academic and industrial partners including <a href="https://www.vcai-lab.org/" rel="external nofollow noopener" target="_blank">Prof. Sören Pirk</a>, <a href="https://scholar.google.de/citations?user=-slpMF8AAAAJ&amp;hl=en" rel="external nofollow noopener" target="_blank">Prof. Evgeny Kharlamov</a>, and <a href="https://ml-research.github.io/people/kkersting/" rel="external nofollow noopener" target="_blank">Prof. Kristian Kersting</a>, and supervise industry-funded PhD researchers with partners such as Siemens, Huawei, and Bosch.</p> <p>I received my PhD in Computer Science from LMU Munich under the supervision of Prof. Volker Tresp. My doctoral research connected relational learning with cognition, quantum computing, and causality. Before moving into computer science, I studied theoretical physics and conducted research on gauge/gravity duality at the Max Planck Institute for Physics.</p> <p>My current research focuses on LLM-based multi-agent systems that communicate, coordinate, and improve through reflection and experience. I am particularly interested in agents that combine language, vision, and structured knowledge, and in translating these capabilities into robust systems for scientific and industrial applications.</p> <hr style="border:0;border-top:1px solid var(--global-divider-color);margin:1.75rem 0"> <h3 class="accented">Latest News</h3> <div class="news"> <div class="table-responsive"> <table class="table table-sm table-borderless latest-news-table"> <tr> <th scope="row">Jun 2026</th> <td> <p>Gave an invited talk on <strong>Agentic Memory</strong> at the Apple Workshop on Reasoning and Planning 2026.</p> </td> </tr> <tr> <th scope="row">Jun 2026</th> <td> <p>Joined the <strong>BAY.AI PI Meeting</strong> at DLD Health x BAIOSPHERE in Munich <a href="https://dldnews.com/dld-health-2026/" target="_blank" rel="noopener" aria-label="DLD Health x BAIOSPHERE link"><i class="bi bi-box-arrow-up-right"></i></a>.</p> </td> </tr> <tr> <th scope="row">May 2026</th> <td> <p>Gave an invited talk at Huawei’s <span class="news-info" data-tooltip="STW is one of Huawei's highest-profile annual technology summits, organized by its top strategic planning teams and overseas research institutes to discuss future industry directions and technology evolution." aria-label="About STW 2026" tabindex="0">STW 2026</span>.</p> </td> </tr> <tr> <th scope="row">Apr 2026</th> <td> <p>Seven papers have been accepted to ICML 2026.</p> </td> </tr> <tr> <th scope="row">Apr 2026</th> <td> <p>Four papers have been accepted to ACL 2026.</p> </td> </tr> </table> </div> <a class="latest-news-all" href="/news/">View all news →</a> </div> <hr style="border:0;border-top:1px solid var(--global-divider-color);margin:1.75rem 0"> <h3 class="accented">Research Interests</h3> <div class="research-interest-grid"> <a class="research-interest-card" href="/publications/#topic:agentic-ai"><i class="bi bi-cpu"></i>Agentic AI</a> <a class="research-interest-card" href="/publications/#topic:self-improving"><i class="bi bi-arrow-repeat"></i>Recursive Self-Improvement</a> <a class="research-interest-card" href="/publications/#topic:multimodal-learning"><i class="bi bi-eye"></i>Multimodal Learning</a> <a class="research-interest-card" href="/publications/#topic:efficient-llms"><i class="bi bi-lightning-charge"></i>Efficient LLMs</a> </div> <script>
   document.addEventListener('DOMContentLoaded', function() {
     var atom = document.querySelector('.atom-deco');
     if (atom) {
