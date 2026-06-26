@@ -1,0 +1,47 @@
+- slug: agentic-ai
+  label: Agentic AI
+  papers:
+    - zhang2025webpilot
+    - yan2025memoryr1
+    - yan2026memoryr2
+    - lu2026openclaw
+    - yan2026pyravid      # multimodal memory for agents
+    - ma2025selfevolving  # self-evolving multi-agent
+    - cheng2026mem2evolve # self-evolving agents with experience
+    - zhang2025swarmagentic # automated agentic system design
+
+- slug: self-improving
+  label: Self-Improving
+  papers:
+    - ma2025selfevolving
+    - zhang2025swarmagentic
+    - bi2026geometry
+    - cheng2026mem2evolve
+    - bi2026echorl
+    - yan2025memoryr1     # RL-based memory management
+    - yan2026memoryr2     # credit assignment for memory agents
+
+- slug: multimodal-learning
+  label: Multimodal Learning
+  papers:
+    - liao2024videoinsta
+    - bi2025llava
+    - bi2025prism
+    - zhou2026opendrivevla
+    - wang2025metok
+    - wang2026ascd
+    - zhang2026thinkasyousee
+    - liao2024gentkg
+    - ding2025dygmamba
+    - li2026graphsubstrate
+    - yan2026pyravid
+
+- slug: efficient-llms
+  label: Efficient LLMs
+  papers:
+    - tong2025streamingthinker
+    - ye2026selecttothink
+    - liu2026perft
+    - liu2026routingfree
+    - bi2026geometry      # efficient self-evaluation via layer trajectories
+    - zhang2026thinkasyousee # streaming inference for VLMs

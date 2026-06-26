@@ -345,6 +345,14 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
 </dialog>
 
 <script>
+  const TOPIC_MAP = {
+    {%- for topic in site.data.research_topics %}
+    {{ topic.slug | jsonify }}: {{ topic.papers | jsonify }}{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  };
+</script>
+
+<script>
   document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("publication-image-lightbox");
     const fullImage = lightbox.querySelector("img");
@@ -459,10 +467,36 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
       return (text) => evaluate(tree, text.toLowerCase());
     };
 
+    const applyTopicFilter = (slug) => {
+      const keys = TOPIC_MAP[slug];
+      if (!keys) return;
+      const keySet = new Set(keys);
+      document.querySelectorAll(".bibliography, .unloaded").forEach((el) => el.classList.remove("unloaded"));
+      document.querySelectorAll("ol.bibliography > li").forEach((item) => {
+        const citeKey = item.querySelector("div[id]")?.id ?? "";
+        item.classList.toggle("unloaded", !keySet.has(citeKey));
+      });
+      document.querySelectorAll("h2.bibliography").forEach((heading) => {
+        let sibling = heading.nextElementSibling;
+        let hasVisible = false;
+        while (sibling && sibling.tagName !== "H2") {
+          if (sibling.tagName === "OL") {
+            const has = Boolean(sibling.querySelector(":scope > li:not(.unloaded)"));
+            sibling.classList.toggle("unloaded", !has);
+            hasVisible ||= has;
+          }
+          sibling = sibling.nextElementSibling;
+        }
+        heading.classList.toggle("unloaded", !hasVisible);
+      });
+    };
+
     const syncBibSearchFromHash = () => {
       const input = document.getElementById("bibsearch");
       if (!input || !window.location.hash) return;
-      input.value = decodeURIComponent(window.location.hash.substring(1));
+      const hash = decodeURIComponent(window.location.hash.substring(1));
+      if (hash.startsWith("topic:")) return;
+      input.value = hash;
     };
 
     const applyEnhancedBibSearch = () => {
@@ -493,6 +527,15 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
 
     let shouldSyncBibSearchFromHash = Boolean(window.location.hash);
     const finishBibSearch = () => {
+      const hash = window.location.hash ? decodeURIComponent(window.location.hash.substring(1)) : "";
+      if (hash.startsWith("topic:")) {
+        applyTopicFilter(hash.slice(6));
+        CSS.highlights?.delete("search");
+        updateYearCounts();
+        document.documentElement.classList.remove("bibsearch-pending");
+        return;
+      }
+      document.querySelectorAll("ol.bibliography > li, h2.bibliography, ol.bibliography").forEach((el) => el.classList.remove("unloaded"));
       if (shouldSyncBibSearchFromHash) {
         syncBibSearchFromHash();
         shouldSyncBibSearchFromHash = false;

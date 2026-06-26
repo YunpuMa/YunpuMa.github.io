@@ -53,9 +53,14 @@ latest_posts:
   }
   .research-interest-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.65rem;
     margin: 1rem 0 0.5rem;
+  }
+  @media (max-width: 700px) {
+    .research-interest-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   .research-interest-card {
     position: relative;
@@ -151,6 +156,22 @@ latest_posts:
   html[data-theme=dark] #affiliation-chips a:hover {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
+  .latest-news-table th {
+    color: rgba(78, 111, 163, 0.72);
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.45;
+    width: 20%;
+  }
+  html[data-theme=dark] .latest-news-table th {
+    color: rgba(124, 160, 197, 0.78);
+  }
+  .latest-news-all {
+    font-size: 0.85rem;
+    display: block;
+    text-align: right;
+    margin-top: 0.25rem;
+  }
   /* Ghost atom — right side of post-header */
   .post-header { position: relative; overflow: hidden; }
   .atom-deco {
@@ -206,16 +227,33 @@ I received my PhD in Computer Science from LMU Munich under the supervision of P
 My current research focuses on LLM-based multi-agent systems that communicate, coordinate, and improve through reflection and experience. I am particularly interested in agents that combine language, vision, and structured knowledge, and in translating these capabilities into robust systems for scientific and industrial applications.
 
 <hr style="border:0;border-top:1px solid var(--global-divider-color);margin:1.75rem 0">
-  
+
+<h3 class="accented">Latest News</h3>
+
+<div class="news">
+  <div class="table-responsive">
+    <table class="table table-sm table-borderless latest-news-table">
+      {% assign news_items = site.news | sort: "date" | reverse %}
+      {% for item in news_items limit: 5 %}
+        <tr>
+          <th scope="row">{{ item.date | date: "%b %Y" }}</th>
+          <td>{{ item.content | markdownify }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <a class="latest-news-all" href="{{ '/news/' | relative_url }}">View all news &rarr;</a>
+</div>
+
+<hr style="border:0;border-top:1px solid var(--global-divider-color);margin:1.75rem 0">
+
 <h3 class="accented">Research Interests</h3>
 
 <div class="research-interest-grid">
-  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#memory%20AND%20agent"><i class="bi bi-cpu"></i>Memory-augmented agents and long-term adaptation</a>
-  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#multi-agent"><i class="bi bi-people"></i>Multi-agent systems, communication, and coordination</a>
-  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#(self-evolving%20OR%20self-improving)%20AND%20agent"><i class="bi bi-arrow-repeat"></i>Self-improving agents and automated agentic system design</a>
-  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#web AND agent"><i class="bi bi-globe"></i>Agentic web systems and autonomous task execution</a>
-  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#video OR VLLM"><i class="bi bi-eye"></i>Multimodal foundation models and long-video understanding</a>
-  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#knowledge AND graph"><i class="bi bi-diagram-3"></i>Temporal knowledge graphs and structured reasoning</a>
+  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#topic:agentic-ai"><i class="bi bi-cpu"></i>Agentic AI</a>
+  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#topic:self-improving"><i class="bi bi-arrow-repeat"></i>Self-Improving</a>
+  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#topic:multimodal-learning"><i class="bi bi-eye"></i>Multimodal Learning</a>
+  <a class="research-interest-card" href="{{ '/publications/' | relative_url }}#topic:efficient-llms"><i class="bi bi-lightning-charge"></i>Efficient LLMs</a>
 </div>
 
 <script>
