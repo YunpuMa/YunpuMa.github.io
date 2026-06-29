@@ -94,6 +94,12 @@
   link:
   logo: true
 
+- name: Huawei
+  section: Industry Collaborators
+  photo: /assets/img/academic-industry/huawei.webp
+  link:
+  logo: true
+
 - name: Bosch
   section: Industry Collaborators
   photo: /assets/img/academic-industry/bosch.png

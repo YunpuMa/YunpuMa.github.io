@@ -15,6 +15,9 @@ industry_collaborators:
   - name: Siemens
     image: /assets/img/academic-industry/siemens.png
     source: https://tresp-lab.github.io/assets/img/academic-industry/siemens.png
+  - name: Huawei
+    image: /assets/img/academic-industry/huawei.webp
+    source: https://tresp-lab.github.io/assets/img/academic-industry/huawei.webp
   - name: Bosch
     image: /assets/img/academic-industry/bosch.png
     source: https://tresp-lab.github.io/assets/img/academic-industry/bosch.png
