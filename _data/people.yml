@@ -79,6 +79,15 @@
   supervisor_link: https://www.professoren.tum.de/carle-georg
   research_area: Agentic Reasoning
 
+- name: Zefeng Wang
+  slug: zefeng-wang
+  section: PhD Students
+  photo: /assets/img/people/zefeng-wang.jpg
+  link: https://www.linkedin.com/in/zefeng-wang-165253234/
+  supervisor: Volker Tresp
+  supervisor_link: https://www.dbs.ifi.lmu.de/~tresp/
+  research_area:
+
 - name: Zixuan Cao
   slug: zixuan-cao
   section: Master Students
