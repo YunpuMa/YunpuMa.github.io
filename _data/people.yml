@@ -40,8 +40,6 @@
   section: PhD Students
   photo: /assets/img/people/xiaowen-ma.jpg
   link: https://www.linkedin.com/in/xiaowen-ma-2808b7256/
-  supervisor: Volker Tresp
-  supervisor_link: https://www.dbs.ifi.lmu.de/~tresp/
   research_area: Multi-Agentic Reasoning
 
 - name: Mengyue Wang
@@ -90,15 +88,15 @@
   description: Student Assistant
   research_area: Lab Support, Harness Engineering
 
-- name: Bosch
-  section: Industry Collaborators
-  photo: /assets/img/academic-industry/bosch.png
-  link:
-  logo: true
-
 - name: Siemens
   section: Industry Collaborators
   photo: /assets/img/academic-industry/siemens.png
+  link:
+  logo: true
+
+- name: Bosch
+  section: Industry Collaborators
+  photo: /assets/img/academic-industry/bosch.png
   link:
   logo: true
 
@@ -108,14 +106,14 @@
   link:
   logo: true
 
-- name: Huawei
-  section: Industry Collaborators
-  photo: /assets/img/academic-industry/huawei.webp
-  link:
-  logo: true
-
 - name: SAP
   section: Industry Collaborators
   photo: /assets/img/academic-industry/sap.png
+  link:
+  logo: true
+
+- name: Youibot
+  section: Industry Collaborators
+  photo: /assets/img/academic-industry/youibot-firmalogo-neu_21e7e898.png
   link:
   logo: true

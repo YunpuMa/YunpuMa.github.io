@@ -12,21 +12,21 @@ phd_students:
     source: https://tresp-lab.github.io/assets/img/people/Iakov.jpeg
 
 industry_collaborators:
-  - name: Bosch
-    image: /assets/img/academic-industry/bosch.png
-    source: https://tresp-lab.github.io/assets/img/academic-industry/bosch.png
   - name: Siemens
     image: /assets/img/academic-industry/siemens.png
     source: https://tresp-lab.github.io/assets/img/academic-industry/siemens.png
+  - name: Bosch
+    image: /assets/img/academic-industry/bosch.png
+    source: https://tresp-lab.github.io/assets/img/academic-industry/bosch.png
   - name: Apple
     image: /assets/img/academic-industry/apple.png
     source: https://tresp-lab.github.io/assets/img/academic-industry/apple.png
-  - name: Huawei
-    image: /assets/img/academic-industry/huawei.webp
-    source: https://tresp-lab.github.io/assets/img/academic-industry/huawei.webp
   - name: SAP
     image: /assets/img/academic-industry/sap.png
     source: https://tresp-lab.github.io/assets/img/academic-industry/sap.png
+  - name: Youibot
+    image: /assets/img/academic-industry/youibot-firmalogo-neu_21e7e898.png
+    source:
 
 not_found_on_source_page:
   - Wenxuan Ye
