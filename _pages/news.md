@@ -75,6 +75,47 @@ nav_order: 2
     background: rgba(220, 220, 220, 0.92);
     color: #1a1a1a;
   }
+  .news-media-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--global-theme-color);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .news-media-toggle:hover,
+  .news-media-toggle:focus-visible {
+    color: var(--global-theme-color);
+  }
+  .news-media {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-rows 240ms ease,
+      opacity 180ms ease,
+      margin-top 240ms ease;
+    margin-top: 0;
+  }
+  .news-media.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 0.85rem;
+  }
+  .news-media-inner {
+    overflow: hidden;
+  }
+  .news-media img {
+    display: block;
+    width: min(100%, 560px);
+    height: auto;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 6px;
+  }
 </style>
 
 <div class="news">
@@ -92,3 +133,18 @@ nav_order: 2
     </table>
   </div>
 </div>
+
+<script>
+  document.querySelectorAll(".news-media-toggle").forEach((button) => {
+    const media = document.getElementById(button.getAttribute("aria-controls"));
+
+    if (!media) return;
+
+    button.addEventListener("click", () => {
+      const isOpen = media.classList.toggle("is-open");
+
+      button.setAttribute("aria-expanded", String(isOpen));
+      button.setAttribute("aria-label", `${isOpen ? "Hide" : "Show"} image for BAY.AI PI Meeting`);
+    });
+  });
+</script>
