@@ -14,6 +14,9 @@ profile:
     - label: Group Leader
       sublabel: TRESP Lab
       url: https://tresp-lab.github.io/
+    - label: Research Scientist
+      sublabel: Huawei
+      url: https://huaweiresearchcentergermanyaustria.teamtailor.com/
     - label: Member
       sublabel: MCML
       url: https://mcml.ai/
@@ -210,6 +213,47 @@ latest_posts:
     background: rgba(220, 220, 220, 0.92);
     color: #1a1a1a;
   }
+  .news-media-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--global-theme-color);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .news-media-toggle:hover,
+  .news-media-toggle:focus-visible {
+    color: var(--global-theme-color);
+  }
+  .news-media {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-rows 240ms ease,
+      opacity 180ms ease,
+      margin-top 240ms ease;
+    margin-top: 0;
+  }
+  .news-media.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 0.85rem;
+  }
+  .news-media-inner {
+    overflow: hidden;
+  }
+  .news-media img {
+    display: block;
+    width: min(100%, 560px);
+    height: auto;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 6px;
+  }
   /* Ghost atom — right side of post-header */
   .post-header { position: relative; overflow: hidden; }
   .atom-deco {
@@ -301,5 +345,18 @@ My current research focuses on LLM-based multi-agent systems that communicate, c
       var now = Date.now() / 1000;
       atom.style.setProperty('--atom-spin-delay', -((now % 32)) + 's');
     }
+
+    document.querySelectorAll(".news-media-toggle").forEach((button) => {
+      const media = document.getElementById(button.getAttribute("aria-controls"));
+
+      if (!media) return;
+
+      button.addEventListener("click", () => {
+        const isOpen = media.classList.toggle("is-open");
+
+        button.setAttribute("aria-expanded", String(isOpen));
+        button.setAttribute("aria-label", `${isOpen ? "Hide" : "Show"} image for BAY.AI PI Meeting`);
+      });
+    });
   });
 </script>
