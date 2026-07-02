@@ -54,8 +54,24 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
     box-shadow: none !important;
   }
   .publications .abbr {
+    flex: 0 0 20%;
+    max-width: 20%;
     transform-origin: center;
     transition: transform 0.2s ease;
+  }
+  .publications .abbr + [class*="col-sm-"] {
+    flex: 0 0 80%;
+    max-width: 80%;
+  }
+  .publications .abbr .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.16rem 0.32rem;
+    white-space: normal;
+    line-height: 1;
+    overflow-wrap: anywhere;
+    text-align: center;
   }
   .publications .abbr figure picture {
     display: block;
@@ -329,6 +345,19 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
     }
     .publications ol.bibliography > li:hover .abbr {
       transform: none;
+    }
+  }
+  @media (max-width: 575.98px) {
+    .publications .abbr,
+    .publications .abbr + [class*="col-sm-"] {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .publications .abbr {
+      margin-bottom: 0.75rem;
+    }
+    .publications .abbr figure picture {
+      aspect-ratio: 16 / 9;
     }
   }
 </style>
