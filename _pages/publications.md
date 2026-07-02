@@ -54,23 +54,19 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
     box-shadow: none !important;
   }
   .publications .abbr {
-    flex: 0 0 20%;
-    max-width: 20%;
     transform-origin: center;
     transition: transform 0.2s ease;
-  }
-  .publications .abbr + [class*="col-sm-"] {
-    flex: 0 0 80%;
-    max-width: 80%;
   }
   .publications .abbr .badge {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.16rem 0.32rem;
+    padding: 0.12rem 0.22rem;
+    font-size: 0.64rem;
     white-space: normal;
-    line-height: 1;
-    overflow-wrap: anywhere;
+    line-height: 1.05;
+    overflow-wrap: normal;
+    word-break: normal;
     text-align: center;
   }
   .publications .abbr figure picture {
