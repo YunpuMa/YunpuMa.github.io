@@ -329,6 +329,7 @@ filtered_bibtex_keywords:
     pmid,
     poster,
     preview,
+    preview_thumbnail,
     selected,
     slides,
     sort_day,

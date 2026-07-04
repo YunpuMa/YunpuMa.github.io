@@ -1065,7 +1065,7 @@ max_author_limit: 3
 more_authors_animation_delay: 10
 ```
 
-- `enable_publication_thumbnails`: When `true`, displays preview images for publications (if specified in the BibTeX entry with the `preview` field). Set to `false` to disable thumbnails for all publications.
+- `enable_publication_thumbnails`: When `true`, displays preview images for publications specified in the BibTeX entry with the `preview` field. If a same-named file exists in `assets/img/publication_thumbnail/`, that file is used as the list thumbnail while `preview` remains the full click-to-zoom image. Set to `false` to disable thumbnails for all publications.
 - `max_author_limit`: Sets the maximum number of authors shown initially for each publication. If a publication has more authors, they are hidden behind a "more authors" link. Leave blank to always show all authors.
 - `more_authors_animation_delay`: Controls the animation speed (in milliseconds) when revealing additional authors. A smaller value means faster animation.
 
@@ -1082,6 +1082,22 @@ To add a thumbnail to a publication, include a `preview` field in your BibTeX en
 ```
 
 Place the image file in `assets/img/publication_preview/`.
+
+For publications where the list thumbnail needs a different crop from the full image, keep `preview` as the full image and place a same-named cropped file in `assets/img/publication_thumbnail/`.
+
+For example, this entry uses `assets/img/publication_preview/example_full.png` by default:
+
+```bibtex
+@article{example2024,
+  title={Example Paper},
+  author={Author, First and Author, Second},
+  journal={Example Journal},
+  year={2024},
+  preview={example_full.png}
+}
+```
+
+If `assets/img/publication_thumbnail/example_full.png` exists, the publication list uses that cropped file; clicking the thumbnail opens the full `preview` image.
 
 ## Adding a Google Calendar
 

@@ -26,7 +26,38 @@
         {% endif %}
       {% endif %}
       {% if entry.preview %}
-        {% if entry.preview contains '://' %}
+        {% assign auto_thumbnail = null %}
+        {% unless entry.preview contains '://' %}
+          {% assign auto_thumbnail_path = entry.preview | prepend: '/assets/img/publication_thumbnail/' %}
+          {% assign auto_thumbnail_file = site.static_files | where: 'path', auto_thumbnail_path | first %}
+          {% if auto_thumbnail_file %}
+            {% assign auto_thumbnail = entry.preview %}
+          {% endif %}
+        {% endunless %}
+        {% assign thumbnail_image = entry.preview_thumbnail | default: auto_thumbnail %}
+        {% if thumbnail_image %}
+          {% if entry.preview contains '://' %}
+            {% assign preview_src = entry.preview %}
+          {% else %}
+            {% assign preview_src = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url | bust_file_cache %}
+          {% endif %}
+          {% if thumbnail_image contains '://' %}
+            {% assign thumbnail_src = thumbnail_image %}
+          {% else %}
+            {% assign thumbnail_src = thumbnail_image | prepend: '/assets/img/publication_thumbnail/' | relative_url | bust_file_cache %}
+          {% endif %}
+          <figure>
+            <picture>
+              <img
+                class="preview z-depth-1 rounded"
+                src="{{ thumbnail_src }}"
+                data-full-src="{{ preview_src }}"
+                alt="{{ entry.title | strip_html | strip_newlines | escape }}"
+                loading="eager"
+              >
+            </picture>
+          </figure>
+        {% elsif entry.preview contains '://' %}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}

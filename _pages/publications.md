@@ -406,7 +406,7 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
     thumbnails.forEach((thumbnail) => {
       thumbnail.removeAttribute("data-zoomable");
       thumbnail.addEventListener("click", () => {
-        fullImage.src = thumbnail.src;
+        fullImage.src = thumbnail.dataset.fullSrc || thumbnail.src;
         fullImage.alt = thumbnail.alt;
         lightbox.showModal();
         closeButton.focus();

@@ -30,7 +30,9 @@ bin/extract-arxiv-figures --all
 The script keeps source archives and ranked figure shortlists in
 `/tmp/al-folio-arxiv-figures`. Copy selected images into
 `assets/img/publication_preview/` and set the entry's `preview` field in
-`_bibliography/papers.bib`. Teaser-named figures receive the highest shortlist
-priority.
+`_bibliography/papers.bib`. To use a hand-cropped list thumbnail while keeping
+the full image for the click-to-zoom view, put a same-named cropped file in
+`assets/img/publication_thumbnail/`. Teaser-named figures receive the highest
+shortlist priority.
 
 Before deploying to GitHub Pages, set `url` and `baseurl` in `_config.yml`.
