@@ -293,7 +293,7 @@ scholar:
   details_link: Details
 
   query: "@*"
-  sort_by: year, sort_month, sort_day
+  sort_by: year, abbr, sort_month, sort_day
   order: descending
   group_by: year
   group_order: descending
