@@ -191,13 +191,27 @@
     {% else %}
       {% capture entrytype %}{% endcapture %}
     {% endif %}
-    {% assign entrymonth = '' %}
+    {% assign entrydate = '' %}
     {% if entry.month %}
-      {% capture entrymonth %}{{ " " }}{{ entry.month | capitalize }}{% endcapture %}
-    {% endif %}
-    {% assign entryyear = '' %}
-    {% if entry.year %}
-      {% capture entryyear %}{{ " " }}{{ entry.year }}{% endcapture %}
+      {% assign month_key = entry.month | downcase | replace: '.', '' | strip %}
+      {% case month_key %}
+        {% when 'jan', 'january' %}{% assign month_full = 'January' %}
+        {% when 'feb', 'february' %}{% assign month_full = 'February' %}
+        {% when 'mar', 'march' %}{% assign month_full = 'March' %}
+        {% when 'apr', 'april' %}{% assign month_full = 'April' %}
+        {% when 'may' %}{% assign month_full = 'May' %}
+        {% when 'jun', 'june' %}{% assign month_full = 'June' %}
+        {% when 'jul', 'july' %}{% assign month_full = 'July' %}
+        {% when 'aug', 'august' %}{% assign month_full = 'August' %}
+        {% when 'sep', 'sept', 'september' %}{% assign month_full = 'September' %}
+        {% when 'oct', 'october' %}{% assign month_full = 'October' %}
+        {% when 'nov', 'november' %}{% assign month_full = 'November' %}
+        {% when 'dec', 'december' %}{% assign month_full = 'December' %}
+        {% else %}{% assign month_full = entry.month | capitalize %}
+      {% endcase %}
+      {% capture entrydate %}{{ month_full }} {{ entry.year }}{% endcapture %}
+    {% elsif entry.year %}
+      {% capture entrydate %}{{ entry.year }}{% endcapture %}
     {% endif %}
     {% if entry.location %}
       {% capture entrytype %}{{ entrytype }}{{ ", " }}{{ entry.location }}{% endcapture %}
@@ -212,10 +226,10 @@
     {% assign entrytype_text = entrytype | strip_html | strip %}
     {% if entrytype_text != "" %}
       <div class="periodical">{{ entrytype | strip }}</div>
-      <div class="periodical">{{ entrymonth }}{{ entryyear | strip }}</div>
+      <div class="periodical">{{ entrydate | strip }}</div>
     {% else %}
       <div class="periodical">{{ entry.note | strip }}</div>
-      <div class="periodical">{{ entryyear | strip }}</div>
+      <div class="periodical">{{ entrydate | strip }}</div>
     {% endif %}
 
     <!-- Links/Buttons -->

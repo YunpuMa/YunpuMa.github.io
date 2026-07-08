@@ -362,9 +362,6 @@ For the full list, see my [Google Scholar page]({{ site.google_scholar_url }}).
 
 <div class="publications">
 {% bibliography %}
-<script>
-(function(){var e=document.querySelectorAll(".publications ol.bibliography");for(var t=0;t<e.length;t++){var n=e[t],l=Array.prototype.slice.call(n.children);l.sort(function(e,t){var n=function(e){var t=e.querySelector(".abbr .badge");return t?t.textContent.trim():null};return(n(e)===null?1:0)-(n(t)===null?1:0)||(n(e)||"").localeCompare(n(t)||"")});for(var r=0;r<l.length;r++)n.appendChild(l[r])}})();
-</script>
 </div>
 
 <dialog id="publication-image-lightbox" aria-label="Publication figure">

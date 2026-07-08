@@ -1,0 +1,16 @@
+# Fallback venue release dates when APIs only provide month precision (or none).
+# Keys match the `abbr` field in _bibliography/papers.bib.
+# Dates use the conference/proceedings release day when known.
+"NAACL Findings 2024": { month: 06, day: 16 }
+"EMNLP Findings 2024": { month: 11, day: 12 }
+"ACL 2025": { month: 07, day: 27 }
+"EMNLP 2025": { month: 11, day: 05 }
+"ACL 2026": { month: 07, day: 02 }
+"ACL Findings 2026": { month: 07, day: 02 }
+"EACL Findings 2026": { month: 03, day: 24 }
+"AAAI 2025": { month: 04, day: 11 }
+"AAAI 2026": { month: 01, day: 20 }
+"ICLR 2026": { month: 04, day: 23 }
+"ICML 2026": { month: 07, day: 06 }
+"CVPR 2026": { month: 06, day: 03 }
+"TMLR 2025": { month: 05, day: 19 }
