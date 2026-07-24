@@ -53,7 +53,7 @@ nav_order: 5
     min-height: 2.5em;
   }
   .person-card .role.empty { visibility: hidden; }
-  .person-card .role .person-supervisor { white-space: nowrap; }
+  .person-card .role .person-supervisor { display: block; white-space: nowrap; }
   .person-card .role a { color: rgba(54, 86, 138, 0.92); text-decoration: none; }
   .person-card .role a:hover,
   .person-card .role a:focus-visible { color: rgba(54, 86, 138, 0.92); text-decoration: none; opacity: 0.82; }
