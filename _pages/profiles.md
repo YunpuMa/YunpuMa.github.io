@@ -25,7 +25,10 @@ nav_order: 5
     border-bottom: 1px solid var(--global-divider-color);
     margin-bottom: 2rem;
   }
-  .people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem; margin: 1rem 0 2.5rem; }
+  .people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin: 1rem 0 2.5rem; }
+  @media (min-width: 992px) {
+    .people-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  }
   .person-card {
     border: none;
     border-radius: 0.5rem;
@@ -37,25 +40,24 @@ nav_order: 5
   .person-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; }
   .person-card img.logo { aspect-ratio: 4 / 3; object-fit: contain; padding: 1.25rem; background: #fff; }
   .person-card-body {
-    padding: 0.9rem 1rem 0.55rem;
+    padding: 0.75rem 0.75rem 0.45rem;
     background: transparent;
   }
-  .person-card h3 { font-size: 1.05rem; margin: 0 0 0.12rem; }
+  .person-card h3 { font-size: 0.95rem; line-height: 1.25; margin: 0 0 0.12rem; min-height: 2.5em; }
   .person-card .role {
     color: var(--global-text-color-light);
-    font-size: 0.76rem;
+    font-size: 0.7rem;
     font-weight: 400;
-    line-height: 1.15;
+    line-height: 1.25;
     margin: 0.1rem 0 0;
-    min-height: 1.15em;
-    white-space: nowrap;
+    min-height: 2.5em;
   }
   .person-card .role.empty { visibility: hidden; }
   .person-card .role .person-supervisor { white-space: nowrap; }
   .person-card .role a { color: rgba(54, 86, 138, 0.92); text-decoration: none; }
   .person-card .role a:hover,
   .person-card .role a:focus-visible { color: rgba(54, 86, 138, 0.92); text-decoration: none; opacity: 0.82; }
-  .person-card .research-area { font-size: 0.9rem; margin: 0; padding: 0 1rem 0.8rem; background: transparent; }
+  .person-card .research-area { font-size: 0.8rem; line-height: 1.3; margin: 0; padding: 0 0.75rem 0.7rem; background: transparent; }
   .person-card:hover {
     transform: translateZ(0) scale(1.03);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
