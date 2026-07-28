@@ -48,10 +48,10 @@ nav_order: 2
     content: attr(data-tooltip);
     display: block;
     position: absolute;
-    bottom: calc(100% + 6px);
+    top: calc(100% + 6px);
     left: 50%;
     transform: translateX(-50%);
-    width: 380px;
+    width: min(380px, calc(100vw - 2rem));
     padding: 6px 10px;
     background: rgba(30, 30, 30, 0.88);
     color: #f0f0f0;
@@ -64,7 +64,7 @@ nav_order: 2
     text-decoration: none;
     opacity: 0;
     transition: opacity 0.15s ease 0s;
-    z-index: 100;
+    z-index: 1050;
   }
   .news-info:hover::after,
   .news-info:focus-visible::after {
