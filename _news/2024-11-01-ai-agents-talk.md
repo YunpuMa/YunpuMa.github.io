@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Gave an invited talk on **AI Agents**, organized by SE3 Labs and MCML.
+Gave an invited talk on **AI Agents**, organized by **SE3 Labs** and **MCML**. 🤖

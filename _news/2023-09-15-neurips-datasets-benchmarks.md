@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-One paper has been accepted to the NeurIPS 2023 Datasets and Benchmarks Track.
+**One paper** has been accepted to the **NeurIPS 2023 Datasets and Benchmarks Track**. 🎉

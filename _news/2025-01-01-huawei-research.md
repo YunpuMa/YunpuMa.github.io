@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Began collaborating with Huawei Research Center, supervising PhD students on agentic AI.
+Began collaborating with **Huawei Research Center**, supervising PhD students on **agentic AI**. 🤖

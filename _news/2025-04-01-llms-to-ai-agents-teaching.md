@@ -7,4 +7,4 @@ related_posts: false
 published: false
 ---
 
-Started teaching **From Large Language Models to AI Agents** at CIS, LMU Munich.
+Started teaching **From Large Language Models to AI Agents** at **CIS, LMU Munich**. 📚

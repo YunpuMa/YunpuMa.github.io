@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Gave an invited talk on **Agentic Memory** at the Apple Workshop on Reasoning and Planning 2026.
+Gave an invited talk on **Agentic Memory** at the **Apple Workshop on Reasoning and Planning 2026**. 🧠

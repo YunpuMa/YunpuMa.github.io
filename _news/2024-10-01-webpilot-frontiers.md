@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Presented **WebPilot** at the Japanese-American-German Frontiers of Science Symposium.
+Presented **WebPilot** at the **Japanese-American-German Frontiers of Science Symposium**. 🌐

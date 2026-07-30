@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Gave an invited talk on **Advancing Learning with Temporal Knowledge Graphs** at the TempXAI Workshop at ECML PKDD 2024.
+Gave an invited talk on **Advancing Learning with Temporal Knowledge Graphs** at the **TempXAI Workshop, ECML PKDD 2024**. ⏳

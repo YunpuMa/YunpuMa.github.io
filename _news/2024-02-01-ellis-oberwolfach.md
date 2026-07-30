@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Co-organized the ELLIS Workshop on **Semantic, Symbolic and Interpretable Machine Learning** in Oberwolfach.
+Co-organized the **ELLIS Workshop** on **Semantic, Symbolic and Interpretable Machine Learning** in **Oberwolfach**. 🤝

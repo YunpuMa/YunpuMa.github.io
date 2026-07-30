@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Gave an invited talk on **Multiagentic Systems that Memorize, Communicate, and Act** at Huawei Munich Wireless Summit 2025.
+Gave an invited talk on **Multiagentic Systems that Memorize, Communicate, and Act** at **Huawei Munich Wireless Summit 2025**. 📡

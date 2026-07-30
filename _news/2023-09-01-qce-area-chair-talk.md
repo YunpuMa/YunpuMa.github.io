@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Served as Area Chair for QCE 2023 and gave an invited talk on **Differentiable Quantum Architecture Search for Quantum Reinforcement Learning**.
+Served as **Area Chair for QCE 2023** and gave an invited talk on **Differentiable Quantum Architecture Search for Quantum Reinforcement Learning**. ⚛️

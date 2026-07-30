@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-One paper has been accepted to Findings of EMNLP 2024.
+**One paper** has been accepted to **Findings of EMNLP 2024**. 🎉

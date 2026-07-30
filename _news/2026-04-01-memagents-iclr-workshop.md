@@ -6,5 +6,5 @@ inline: true
 related_posts: false
 ---
 
-Served as a main organizer of **MemAgents: Memory-Centric Agents**, an official workshop at ICLR 2026
-<a href="https://sites.google.com/view/memagent-iclr26/speakers?authuser=0#h.rqkwvl7di3mc" target="_blank" rel="noopener" aria-label="MemAgents ICLR 2026 workshop link"><i class="bi bi-box-arrow-up-right"></i></a>.
+Served as a **main organizer** of **MemAgents: Memory-Centric Agents**, an official workshop at **ICLR 2026**
+<a href="https://sites.google.com/view/memagent-iclr26/speakers?authuser=0#h.rqkwvl7di3mc" target="_blank" rel="noopener" aria-label="MemAgents ICLR 2026 workshop link"><i class="bi bi-box-arrow-up-right"></i></a>. 🧠

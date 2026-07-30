@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-One paper has been accepted to the ICLR 2025 Workshop on World Models.
+**One paper** has been accepted to the **ICLR 2025 Workshop on World Models**. 🎉
