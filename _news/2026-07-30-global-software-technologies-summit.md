@@ -6,7 +6,7 @@ inline: true
 related_posts: false
 ---
 
-Gave an invited talk at the **Global Software Technology Summit 2026: AI Native Software, European Session**
+Gave an invited talk on **Memory in Agentic AI** at the **Global Software Technology Summit 2026: AI Native Software, European Session**
 <button class="news-media-toggle" type="button" aria-label="Show photos for Global Software Technology Summit 2026" aria-expanded="false" aria-controls="news-media-gsts-2026" data-open-label="Show photos for Global Software Technology Summit 2026" data-close-label="Hide photos for Global Software Technology Summit 2026"><i class="bi bi-images" aria-hidden="true"></i></button>. 📡
 
 <div class="news-media" id="news-media-gsts-2026">
