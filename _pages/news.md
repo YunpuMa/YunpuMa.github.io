@@ -109,12 +109,28 @@ nav_order: 2
   .news-media-inner {
     overflow: hidden;
   }
+  .news-media-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    max-width: 760px;
+  }
   .news-media img {
     display: block;
     width: min(100%, 560px);
     height: auto;
     border: 1px solid var(--global-divider-color);
     border-radius: 6px;
+  }
+  .news-media-gallery img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  @media (max-width: 575.98px) {
+    .news-media-gallery {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 
@@ -142,9 +158,11 @@ nav_order: 2
 
     button.addEventListener("click", () => {
       const isOpen = media.classList.toggle("is-open");
+      const openLabel = button.dataset.openLabel || button.getAttribute("aria-label") || "Show news media";
+      const closeLabel = button.dataset.closeLabel || openLabel.replace(/^Show/, "Hide");
 
       button.setAttribute("aria-expanded", String(isOpen));
-      button.setAttribute("aria-label", `${isOpen ? "Hide" : "Show"} image for BAY.AI PI Meeting`);
+      button.setAttribute("aria-label", isOpen ? closeLabel : openLabel);
     });
   });
 </script>
