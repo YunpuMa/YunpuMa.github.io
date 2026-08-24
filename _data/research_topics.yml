@@ -9,6 +9,11 @@
     - ma2025selfevolving  # self-evolving multi-agent
     - cheng2026mem2evolve # self-evolving agents with experience
     - zhang2025swarmagentic # automated agentic system design
+    - wang2026memwm
+    - liu2026mendelgodel
+    - bi2026reflectrl
+    - jiao2026searcheyes
+    - wang2026metaskillevolve
 
 - slug: self-improving
   label: Recursive Self-Improvement
@@ -17,6 +22,9 @@
     - zhang2025swarmagentic
     - bi2026geometry
     - cheng2026mem2evolve
+    - liu2026mendelgodel
+    - bi2026reflectrl
+    - wang2026metaskillevolve
 
 - slug: multimodal-learning
   label: Multimodal Learning
@@ -32,6 +40,9 @@
     - ding2025dygmamba
     - li2026graphsubstrate
     - yan2026pyravid
+    - aniri2026opdv
+    - jiao2026searcheyes
+    - fan2026minireranker
 
 - slug: efficient-llms
   label: Efficient LLMs
@@ -42,3 +53,7 @@
     - liu2026routingfree
     - bi2026geometry      # efficient self-evaluation via layer trajectories
     - zhang2026thinkasyousee # streaming inference for VLMs
+    - hu2026wide
+    - fan2026minireranker
+    - hu2026beyondflops
+    - tong2026proactivellm
