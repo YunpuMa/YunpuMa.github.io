@@ -1,4 +1,13 @@
 # Keep section names aligned with the headings in _pages/profiles.md.
+- name: Ahmed Bahloul
+  slug: ahmed-bahloul
+  section: PhD Students
+  photo: /assets/img/people/ahmed-bahloul.png
+  link: https://www.linkedin.com/in/ahmedehabb/
+  supervisor: Daniel Cremers
+  supervisor_link: https://cvg.cit.tum.de/members/cremers
+  research_area: Agentic System
+
 - name: Aniri
   slug: aniri
   section: PhD Students
