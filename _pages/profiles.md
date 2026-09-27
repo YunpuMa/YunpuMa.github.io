@@ -25,33 +25,54 @@ nav_order: 5
     border-bottom: 1px solid var(--global-divider-color);
     margin-bottom: 2rem;
   }
-  .people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin: 1rem 0 2.5rem; }
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2.75rem;
+  }
   @media (min-width: 992px) {
-    .people-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .people-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .people-grid.logo-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   }
   .person-card {
     display: flex;
     flex-direction: column;
-    border: none;
-    border-radius: 0.5rem;
+    min-height: 11rem;
+    border: 1px solid rgba(78, 111, 163, 0.13);
+    border-top: 3px solid rgba(78, 111, 163, 0.62);
+    border-radius: 0.6rem;
     overflow: hidden;
-    background: rgba(78, 111, 163, 0.06);
-    box-shadow: 0 4px 20px rgba(78, 111, 163, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.65);
-    transition: box-shadow 0.22s ease, transform 0.22s ease;
+    background: linear-gradient(145deg, rgba(78, 111, 163, 0.065), rgba(78, 111, 163, 0.025));
+    box-shadow: 0 5px 18px rgba(78, 111, 163, 0.07);
+    transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
   }
-  .person-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; }
-  .person-card img.logo { aspect-ratio: 4 / 3; object-fit: contain; padding: 1.25rem; background: #fff; }
+  .person-card.logo-card {
+    min-height: 0;
+    border: none;
+    background: #fff;
+  }
+  .person-card img.logo { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 1.25rem; }
   .person-card-body {
-    padding: 0.75rem;
-    background: transparent;
+    padding: 1.15rem 1.2rem 0.9rem;
   }
-  .person-card h3 { font-size: 0.95rem; line-height: 1.25; margin: 0; }
+  .person-card h3 { font-size: 1.08rem; line-height: 1.3; margin: 0; }
+  .person-card h3 a {
+    color: var(--global-text-color);
+    text-decoration: none;
+    text-underline-offset: 0.18em;
+  }
+  .person-card h3 a:hover,
+  .person-card h3 a:focus-visible {
+    color: var(--global-theme-color);
+    text-decoration: underline;
+  }
   .person-card .role {
     color: var(--global-text-color-light);
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     font-weight: 400;
-    line-height: 1.25;
-    margin: 0.4rem 0 0;
+    line-height: 1.45;
+    margin: 0.55rem 0 0;
   }
   .person-card .role.empty { display: none; }
   .person-card .role .person-supervisor { display: block; white-space: nowrap; }
@@ -59,24 +80,42 @@ nav_order: 5
   .person-card .role a:hover,
   .person-card .role a:focus-visible { color: rgba(54, 86, 138, 0.92); text-decoration: none; opacity: 0.82; }
   .person-card .research-area {
-    display: flex;
-    flex: 0 0 4rem;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem;
+    align-items: baseline;
     margin: auto 0 0;
-    padding: 0.65rem 0.75rem 0.7rem;
+    padding: 0.8rem 1.2rem 0.9rem;
     border-top: 1px solid rgba(78, 111, 163, 0.1);
-    background: rgba(78, 111, 163, 0.035);
-    font-size: 0.8rem;
-    line-height: 1.3;
+    background: rgba(78, 111, 163, 0.03);
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+  .person-card .research-area::before {
+    content: "Research";
+    color: var(--global-text-color-light);
+    font-size: 0.67rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .person-card .research-area.empty {
+    display: none;
   }
   .person-card:hover {
-    transform: translateZ(0) scale(1.03);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: rgba(78, 111, 163, 0.32);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(78, 111, 163, 0.13);
   }
   html[data-theme=dark] .person-card {
     background: rgba(122, 159, 196, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.1);
+    border-top-color: rgba(122, 159, 196, 0.75);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+  }
+  html[data-theme=dark] .person-card.logo-card {
+    background: rgba(255, 255, 255, 0.94);
+    border: none;
   }
   html[data-theme=dark] .person-card .research-area {
     border-top-color: rgba(255, 255, 255, 0.08);
@@ -95,15 +134,14 @@ nav_order: 5
 {% if members.size > 0 %}
 ## {{ section }}
 
-<div class="people-grid">
+<div class="people-grid{% if section == 'Industry Collaborators' %} logo-grid{% endif %}">
   {% for person in members %}
-    <article class="person-card">
-      {% if person.photo %}
+    <article class="person-card{% if person.logo %} logo-card{% endif %}">
+      {% if person.logo and person.photo %}
         <img
-          class="{% if person.logo %}logo{% endif %}"
+          class="logo"
           src="{{ person.photo | relative_url | bust_file_cache }}"
-          alt="{% if person.logo %}{{ person.name }} logo{% else %}Photo of {{ person.name }}{% endif %}"
-          {% if person.photo_position %}style="object-position: {{ person.photo_position }};"{% endif %}
+          alt="{{ person.name }} logo"
         >
       {% endif %}
       {% unless person.logo %}
@@ -136,8 +174,8 @@ nav_order: 5
       </div>
       {% endunless %}
       {% unless person.logo %}
-      <p class="research-area"{% unless person.research_area %} aria-hidden="true"{% endunless %}>
-        {% if person.research_area %}{{ person.research_area }}{% else %}&nbsp;{% endif %}
+      <p class="research-area{% unless person.research_area %} empty{% endunless %}">
+        {% if person.research_area %}{{ person.research_area }}{% endif %}
       </p>
       {% endunless %}
     </article>
