@@ -185,124 +185,69 @@
     #page-veil { animation: none; opacity: 0; }
   }
 </style> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Dr. Yunpu Ma </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item "> <a class="nav-link" href="/news/">News </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/grants/">Grants </a> </li> <li class="nav-item active"> <a class="nav-link" href="/people/">People <span class="sr-only">(current)</span> </a> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">People</h1> <p class="post-description">Members of the research group and collaborators.</p> </header> <article> <style>
-  .post-title {
-    font-family: 'Libre Baskerville', serif;
-    font-weight: 700;
-    letter-spacing: 0.01em;
+  .people-list {
+    list-style: none;
+    margin: 0 0 2.5rem;
+    padding: 0;
   }
-  .post-description {
-    font-size: 0.82rem;
-    font-variant: small-caps;
-    letter-spacing: 0.1em;
-    color: rgba(64, 68, 76, 0.92);
-    margin: 0.4rem 0 0;
-  }
-  .post-header {
-    padding-bottom: 1.5rem;
+  .people-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 1.25rem;
+    padding: 0.8rem 0;
     border-bottom: 1px solid var(--global-divider-color);
-    margin-bottom: 2rem;
   }
-  .people-grid {
+  .people-list .person-name {
+    min-width: 12rem;
+    font-weight: 600;
+  }
+  .people-list a {
+    color: var(--global-theme-color);
+  }
+  .people-list .person-meta {
+    color: var(--global-text-color-light);
+    font-size: 0.9rem;
+  }
+  .people-list .person-research {
+    margin-left: auto;
+    color: var(--global-text-color-light);
+    font-size: 0.9rem;
+    text-align: right;
+  }
+  .industry-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1rem;
     margin: 1rem 0 2.75rem;
   }
-  @media (min-width: 992px) {
-    .people-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .people-grid.logo-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  }
-  .person-card {
-    display: flex;
-    flex-direction: column;
-    min-height: 11rem;
-    border: 1px solid rgba(78, 111, 163, 0.13);
-    border-top: 3px solid rgba(78, 111, 163, 0.62);
-    border-radius: 0.6rem;
+  .industry-card {
     overflow: hidden;
-    background: linear-gradient(145deg, rgba(78, 111, 163, 0.065), rgba(78, 111, 163, 0.025));
-    box-shadow: 0 5px 18px rgba(78, 111, 163, 0.07);
-    transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
-  }
-  .person-card.logo-card {
-    min-height: 0;
-    border: none;
+    border-radius: 0.6rem;
     background: #fff;
   }
-  .person-card img.logo { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 1.25rem; }
-  .person-card-body {
-    padding: 1.15rem 1.2rem 0.9rem;
+  .industry-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    padding: 1.25rem;
   }
-  .person-card h3 { font-size: 1.08rem; line-height: 1.3; margin: 0; }
-  .person-card h3 a {
-    color: var(--global-text-color);
-    text-decoration: none;
-    text-underline-offset: 0.18em;
+  @media (min-width: 992px) {
+    .industry-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   }
-  .person-card h3 a:hover,
-  .person-card h3 a:focus-visible {
-    color: var(--global-theme-color);
-    text-decoration: underline;
-  }
-  .person-card .role {
-    color: var(--global-text-color-light);
-    font-size: 0.78rem;
-    font-weight: 400;
-    line-height: 1.45;
-    margin: 0.55rem 0 0;
-  }
-  .person-card .role.empty { display: none; }
-  .person-card .role .person-supervisor { display: block; white-space: nowrap; }
-  .person-card .role a { color: rgba(54, 86, 138, 0.92); font-weight: 500; text-decoration: none; }
-  .person-card .role a:hover,
-  .person-card .role a:focus-visible { color: rgba(54, 86, 138, 0.92); text-decoration: none; opacity: 0.82; }
-  .person-card .research-area {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.6rem;
-    align-items: baseline;
-    margin: auto 0 0;
-    padding: 0.8rem 1.2rem 0.9rem;
-    border-top: 1px solid rgba(78, 111, 163, 0.1);
-    background: rgba(78, 111, 163, 0.03);
-    font-size: 0.82rem;
-    line-height: 1.4;
-  }
-  .person-card .research-area::before {
-    content: "Research";
-    color: var(--global-text-color-light);
-    font-size: 0.67rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .person-card .research-area.empty {
-    display: none;
-  }
-  .person-card:hover {
-    border-color: rgba(78, 111, 163, 0.32);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 24px rgba(78, 111, 163, 0.13);
-  }
-  html[data-theme=dark] .person-card {
-    background: rgba(122, 159, 196, 0.08);
-    border-color: rgba(255, 255, 255, 0.1);
-    border-top-color: rgba(122, 159, 196, 0.75);
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
-  }
-  html[data-theme=dark] .person-card.logo-card {
+  html[data-theme=dark] .industry-card {
     background: rgba(255, 255, 255, 0.94);
-    border: none;
   }
-  html[data-theme=dark] .person-card .research-area {
-    border-top-color: rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.025);
-  }
-  html[data-theme=dark] .person-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  @media (max-width: 640px) {
+    .people-list .person-research {
+      width: 100%;
+      margin-left: 0;
+      text-align: left;
+    }
   }
   h2 { border-left: 4px solid var(--global-theme-color); padding-left: 0.75rem; }
-</style> <h2 id="phd-students">PhD Students</h2> <div class="people-grid"> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://www.linkedin.com/in/ahmedehabb/" rel="external nofollow noopener" target="_blank">Ahmed Bahloul</a> </h3> <div class="role">co-supervisor: <span class="person-supervisor"><a href="https://cvg.cit.tum.de/members/cremers" rel="external nofollow noopener" target="_blank">Prof. Daniel Cremers</a></span> </div> </div> <p class="research-area"> Agentic System </p> </article> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://www.linkedin.com/in/aniri-496375264/" rel="external nofollow noopener" target="_blank">Aniri</a> </h3> <div class="role">co-supervisor: <span class="person-supervisor"><a href="https://www.dbs.ifi.lmu.de/~tresp/" rel="external nofollow noopener" target="_blank">Prof. Volker Tresp</a></span> </div> </div> <p class="research-area"> VLA, Continual Learning </p> </article> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://jinhe-bi.github.io/" rel="external nofollow noopener" target="_blank">Jinhe Bi</a> </h3> <div class="role">co-supervisor: <span class="person-supervisor"><a href="https://www.dbs.ifi.lmu.de/~tresp/" rel="external nofollow noopener" target="_blank">Prof. Volker Tresp</a></span> </div> </div> <p class="research-area"> Agentic Post-Training </p> </article> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://www.linkedin.com/in/yakov-golovanev/" rel="external nofollow noopener" target="_blank">Yakov Golovanev</a> </h3> <div class="role">co-supervisor: <span class="person-supervisor"><a href="https://www.dbs.ifi.lmu.de/~tresp/" rel="external nofollow noopener" target="_blank">Prof. Volker Tresp</a></span> </div> </div> <p class="research-area"> Novel Architecture Design </p> </article> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://www.linkedin.com/in/liuyilun2000/" rel="external nofollow noopener" target="_blank">Yilun Liu</a> </h3> <div class="role">co-supervisor: <span class="person-supervisor"><a href="https://www.dbs.ifi.lmu.de/~tresp/" rel="external nofollow noopener" target="_blank">Prof. Volker Tresp</a></span> </div> </div> <p class="research-area"> Recursive Self-Improvement </p> </article> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://www.linkedin.com/in/xiaowen-ma-2808b7256/" rel="external nofollow noopener" target="_blank">Xiaowen Ma</a> </h3> <div class="role empty"></div> </div> <p class="research-area"> Multi-Agentic Reasoning </p> </article> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://www.linkedin.com/in/mengyue-wang-842432257?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" rel="external nofollow noopener" target="_blank">Mengyue Wang</a> </h3> <div class="role">co-supervisor: <span class="person-supervisor"><a href="https://cvg.cit.tum.de/members/cremers" rel="external nofollow noopener" target="_blank">Prof. Daniel Cremers</a></span> </div> </div> <p class="research-area"> Agentic Environment </p> </article> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://www.linkedin.com/in/yujun-wang-3a6753261/" rel="external nofollow noopener" target="_blank">Yujun Wang</a> </h3> <div class="role">co-supervisor: <span class="person-supervisor"><a href="https://www.cis.uni-muenchen.de/personen/professoren/schuetze/" rel="external nofollow noopener" target="_blank">Prof. Hinrich Schütze</a></span> </div> </div> <p class="research-area"> Agentic Memory </p> </article> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://yansikuan.github.io/" rel="external nofollow noopener" target="_blank">Sikuan Yan</a> </h3> <div class="role">co-supervisor: <span class="person-supervisor"><a href="https://www.dbs.ifi.lmu.de/~tresp/" rel="external nofollow noopener" target="_blank">Prof. Volker Tresp</a></span> </div> </div> <p class="research-area"> Agentic Memory </p> </article> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://www.linkedin.com/in/wenxuan-ye-865047204/" rel="external nofollow noopener" target="_blank">Wenxuan Ye</a> </h3> <div class="role">co-supervisor: <span class="person-supervisor"><a href="https://www.professoren.tum.de/carle-georg" rel="external nofollow noopener" target="_blank">Prof. Georg Carle</a></span> </div> </div> <p class="research-area"> Agentic Reasoning </p> </article> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://www.linkedin.com/in/zefeng-wang-165253234/" rel="external nofollow noopener" target="_blank">Zefeng Wang</a> </h3> <div class="role">co-supervisor: <span class="person-supervisor"><a href="https://www.dbs.ifi.lmu.de/~tresp/" rel="external nofollow noopener" target="_blank">Prof. Volker Tresp</a></span> </div> </div> <p class="research-area empty"> </p> </article> </div> <h2 id="master-students">Master Students</h2> <div class="people-grid"> <article class="person-card"> <div class="person-card-body"> <h3> <a href="https://www.linkedin.com/in/zixuan-cao-4a95312a5/" rel="external nofollow noopener" target="_blank">Zixuan Cao</a> </h3> <div class="role">Student Assistant</div> </div> <p class="research-area"> Lab Support, Harness Engineering </p> </article> </div> <h2 id="industry-collaborators">Industry Collaborators</h2> <div class="people-grid logo-grid"> <article class="person-card logo-card"> <img class="logo" src="/assets/img/academic-industry/siemens.png?v=bddc5551d74dca17d473453781f8a11e" alt="Siemens logo"> </article> <article class="person-card logo-card"> <img class="logo" src="/assets/img/academic-industry/huawei.webp?v=c11b6541484af1e153f33ab2b27a3423" alt="Huawei logo"> </article> <article class="person-card logo-card"> <img class="logo" src="/assets/img/academic-industry/bosch.png?v=726197b1854a4a58ca01545dbdc9346a" alt="Bosch logo"> </article> <article class="person-card logo-card"> <img class="logo" src="/assets/img/academic-industry/apple.png?v=cfdfd3c98314ece3dca1c3ed1dcc4f7f" alt="Apple logo"> </article> <article class="person-card logo-card"> <img class="logo" src="/assets/img/academic-industry/sap.png?v=afb0942b607e11f81758d9ae62b99496" alt="SAP logo"> </article> <article class="person-card logo-card"> <img class="logo" src="/assets/img/academic-industry/youibot-firmalogo-neu_21e7e898.png?v=30e870816b40ad773c5ed6a6a2fab175" alt="Youibot logo"> </article> </div> </article> </div> </div> <div id="page-veil" aria-hidden="true"></div> <script>
+</style> <h2 id="phd-students">PhD Students</h2> <ul class="people-list"> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/ahmedehabb/" rel="external nofollow noopener" target="_blank">Ahmed Bahloul</a> </span> <span class="person-research">Agentic System</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/aniri-496375264/" rel="external nofollow noopener" target="_blank">Aniri</a> </span> <span class="person-research">VLA, Continual Learning</span> </li> <li> <span class="person-name"> <a href="https://jinhe-bi.github.io/" rel="external nofollow noopener" target="_blank">Jinhe Bi</a> </span> <span class="person-research">Agentic Post-Training</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/yakov-golovanev/" rel="external nofollow noopener" target="_blank">Yakov Golovanev</a> </span> <span class="person-research">Novel Architecture Design</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/liuyilun2000/" rel="external nofollow noopener" target="_blank">Yilun Liu</a> </span> <span class="person-research">Recursive Self-Improvement</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/xiaowen-ma-2808b7256/" rel="external nofollow noopener" target="_blank">Xiaowen Ma</a> </span> <span class="person-research">Multi-Agentic Reasoning</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/mengyue-wang-842432257?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" rel="external nofollow noopener" target="_blank">Mengyue Wang</a> </span> <span class="person-research">Agentic Environment</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/yujun-wang-3a6753261/" rel="external nofollow noopener" target="_blank">Yujun Wang</a> </span> <span class="person-research">Agentic Memory</span> </li> <li> <span class="person-name"> <a href="https://yansikuan.github.io/" rel="external nofollow noopener" target="_blank">Sikuan Yan</a> </span> <span class="person-research">Agentic Memory</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/wenxuan-ye-865047204/" rel="external nofollow noopener" target="_blank">Wenxuan Ye</a> </span> <span class="person-research">Agentic Reasoning</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/zefeng-wang-165253234/" rel="external nofollow noopener" target="_blank">Zefeng Wang</a> </span> </li> </ul> <h2 id="master-students">Master Students</h2> <ul class="people-list"> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/zixuan-cao-4a95312a5/" rel="external nofollow noopener" target="_blank">Zixuan Cao</a> </span> <span class="person-research">Lab Support, Harness Engineering</span> </li> </ul> <h2 id="industry-collaborators">Industry Collaborators</h2> <div class="industry-grid"> <article class="industry-card"> <img src="/assets/img/academic-industry/siemens.png?v=bddc5551d74dca17d473453781f8a11e" alt="Siemens logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/huawei.webp?v=c11b6541484af1e153f33ab2b27a3423" alt="Huawei logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/bosch.png?v=726197b1854a4a58ca01545dbdc9346a" alt="Bosch logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/apple.png?v=cfdfd3c98314ece3dca1c3ed1dcc4f7f" alt="Apple logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/sap.png?v=afb0942b607e11f81758d9ae62b99496" alt="SAP logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/youibot-firmalogo-neu_21e7e898.png?v=30e870816b40ad773c5ed6a6a2fab175" alt="Youibot logo"> </article> </div> </article> </div> </div> <div id="page-veil" aria-hidden="true"></div> <script>
   function clearPageTransitionVeils() {
     document.querySelectorAll('.page-transition-veil').forEach(function(veil) {
       veil.remove();
