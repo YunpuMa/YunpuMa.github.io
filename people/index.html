@@ -192,14 +192,17 @@
   }
   .people-list li {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: baseline;
-    gap: 0.35rem 1.25rem;
-    padding: 0.8rem 0;
+    width: 42rem;
+    max-width: 100%;
+    gap: 0.25rem 0.9rem;
+    padding: 0.6rem 0;
     border-bottom: 1px solid var(--global-divider-color);
+    white-space: nowrap;
   }
   .people-list .person-name {
-    min-width: 12rem;
+    flex: 0 0 12rem;
     font-weight: 600;
   }
   .people-list a {
@@ -210,10 +213,8 @@
     font-size: 0.9rem;
   }
   .people-list .person-research {
-    margin-left: auto;
     color: var(--global-text-color-light);
     font-size: 0.9rem;
-    text-align: right;
   }
   .industry-grid {
     display: grid;
@@ -240,14 +241,19 @@
     background: rgba(255, 255, 255, 0.94);
   }
   @media (max-width: 640px) {
+    .people-list li {
+      flex-wrap: wrap;
+      white-space: normal;
+    }
+    .people-list .person-name {
+      flex-basis: auto;
+    }
     .people-list .person-research {
       width: 100%;
-      margin-left: 0;
-      text-align: left;
     }
   }
   h2 { border-left: 4px solid var(--global-theme-color); padding-left: 0.75rem; }
-</style> <h2 id="phd-students">PhD Students</h2> <ul class="people-list"> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/ahmedehabb/" rel="external nofollow noopener" target="_blank">Ahmed Bahloul</a> </span> <span class="person-research">Agentic System</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/aniri-496375264/" rel="external nofollow noopener" target="_blank">Aniri</a> </span> <span class="person-research">VLA, Continual Learning</span> </li> <li> <span class="person-name"> <a href="https://jinhe-bi.github.io/" rel="external nofollow noopener" target="_blank">Jinhe Bi</a> </span> <span class="person-research">Agentic Post-Training</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/yakov-golovanev/" rel="external nofollow noopener" target="_blank">Yakov Golovanev</a> </span> <span class="person-research">Novel Architecture Design</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/liuyilun2000/" rel="external nofollow noopener" target="_blank">Yilun Liu</a> </span> <span class="person-research">Recursive Self-Improvement</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/xiaowen-ma-2808b7256/" rel="external nofollow noopener" target="_blank">Xiaowen Ma</a> </span> <span class="person-research">Multi-Agentic Reasoning</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/mengyue-wang-842432257?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" rel="external nofollow noopener" target="_blank">Mengyue Wang</a> </span> <span class="person-research">Agentic Environment</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/yujun-wang-3a6753261/" rel="external nofollow noopener" target="_blank">Yujun Wang</a> </span> <span class="person-research">Agentic Memory</span> </li> <li> <span class="person-name"> <a href="https://yansikuan.github.io/" rel="external nofollow noopener" target="_blank">Sikuan Yan</a> </span> <span class="person-research">Agentic Memory</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/wenxuan-ye-865047204/" rel="external nofollow noopener" target="_blank">Wenxuan Ye</a> </span> <span class="person-research">Agentic Reasoning</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/zefeng-wang-165253234/" rel="external nofollow noopener" target="_blank">Zefeng Wang</a> </span> </li> </ul> <h2 id="master-students">Master Students</h2> <ul class="people-list"> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/zixuan-cao-4a95312a5/" rel="external nofollow noopener" target="_blank">Zixuan Cao</a> </span> <span class="person-research">Lab Support, Harness Engineering</span> </li> </ul> <h2 id="industry-collaborators">Industry Collaborators</h2> <div class="industry-grid"> <article class="industry-card"> <img src="/assets/img/academic-industry/siemens.png?v=bddc5551d74dca17d473453781f8a11e" alt="Siemens logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/huawei.webp?v=c11b6541484af1e153f33ab2b27a3423" alt="Huawei logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/bosch.png?v=726197b1854a4a58ca01545dbdc9346a" alt="Bosch logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/apple.png?v=cfdfd3c98314ece3dca1c3ed1dcc4f7f" alt="Apple logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/sap.png?v=afb0942b607e11f81758d9ae62b99496" alt="SAP logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/youibot-firmalogo-neu_21e7e898.png?v=30e870816b40ad773c5ed6a6a2fab175" alt="Youibot logo"> </article> </div> </article> </div> </div> <div id="page-veil" aria-hidden="true"></div> <script>
+</style> <h2 id="phd-students">PhD Students</h2> <ul class="people-list"> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/ahmedehabb/" rel="external nofollow noopener" target="_blank">Ahmed Bahloul</a> </span> <span class="person-research">Agentic System</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/aniri-496375264/" rel="external nofollow noopener" target="_blank">Aniri</a> </span> <span class="person-research">VLA, Continual Learning</span> </li> <li> <span class="person-name"> <a href="https://jinhe-bi.github.io/" rel="external nofollow noopener" target="_blank">Jinhe Bi</a> </span> <span class="person-research">Agentic Post-Training</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/yakov-golovanev/" rel="external nofollow noopener" target="_blank">Yakov Golovanev</a> </span> <span class="person-research">Novel Architecture Design</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/liuyilun2000/" rel="external nofollow noopener" target="_blank">Yilun Liu</a> </span> <span class="person-research">Recursive Self-Improvement</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/xiaowen-ma-2808b7256/" rel="external nofollow noopener" target="_blank">Xiaowen Ma</a> </span> <span class="person-research">Multi-Agentic Reasoning</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/mengyue-wang-842432257?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" rel="external nofollow noopener" target="_blank">Mengyue Wang</a> </span> <span class="person-research">Agentic Environment</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/yujun-wang-3a6753261/" rel="external nofollow noopener" target="_blank">Yujun Wang</a> </span> <span class="person-research">Agentic Memory</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/zefeng-wang-165253234/" rel="external nofollow noopener" target="_blank">Zefeng Wang</a> </span> </li> <li> <span class="person-name"> <a href="https://yansikuan.github.io/" rel="external nofollow noopener" target="_blank">Sikuan Yan</a> </span> <span class="person-research">Agentic Memory</span> </li> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/wenxuan-ye-865047204/" rel="external nofollow noopener" target="_blank">Wenxuan Ye</a> </span> <span class="person-research">Agentic Reasoning</span> </li> </ul> <h2 id="master-students">Master Students</h2> <ul class="people-list"> <li> <span class="person-name"> <a href="https://www.linkedin.com/in/zixuan-cao-4a95312a5/" rel="external nofollow noopener" target="_blank">Zixuan Cao</a> </span> <span class="person-research">Lab Support, Harness Engineering</span> </li> </ul> <h2 id="industry-collaborators">Industry Collaborators</h2> <div class="industry-grid"> <article class="industry-card"> <img src="/assets/img/academic-industry/siemens.png?v=bddc5551d74dca17d473453781f8a11e" alt="Siemens logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/huawei.webp?v=c11b6541484af1e153f33ab2b27a3423" alt="Huawei logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/bosch.png?v=726197b1854a4a58ca01545dbdc9346a" alt="Bosch logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/apple.png?v=cfdfd3c98314ece3dca1c3ed1dcc4f7f" alt="Apple logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/sap.png?v=afb0942b607e11f81758d9ae62b99496" alt="SAP logo"> </article> <article class="industry-card"> <img src="/assets/img/academic-industry/youibot-firmalogo-neu_21e7e898.png?v=30e870816b40ad773c5ed6a6a2fab175" alt="Youibot logo"> </article> </div> </article> </div> </div> <div id="page-veil" aria-hidden="true"></div> <script>
   function clearPageTransitionVeils() {
     document.querySelectorAll('.page-transition-veil').forEach(function(veil) {
       veil.remove();
