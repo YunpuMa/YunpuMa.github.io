@@ -8,9 +8,6 @@ profile:
   image: portrait/prof_pic-800.webp
   image_circular: false
   chips:
-    - label: Lecturer
-      sublabel: LMU Munich
-      url: https://www.lmu.de/
     - label: Group Leader
       sublabel: TRESP Lab
       url: https://tresp-lab.github.io/
